@@ -8,12 +8,19 @@ parameters:
   ComputeHostnameFormat:
     type: string
     default: ""
+  ComputeSriovHostnameFormat:
+    type: string
+    default: ""
+  ComputeDpdkHostnameFormat:
+    type: string
+    default: ""
   CephStorageHostnameFormat:
     type: string
     default: ""
   ObjectStorageHostnameFormat:
     type: string
     default: ""
+  #
   emc_scaleio_ip1:
     default: ''
     description: IP1 of EMC ScaleIO appliance.
@@ -52,10 +59,12 @@ resources:
         str_replace:
           template: {get_file: all-firstboot-config/scripts/register_node_role.sh}
           params:
-            _CTRL_FORMAT_: {get_param: ControllerHostnameFormat}
-            _CMPT_FORMAT_: {get_param: ComputeHostnameFormat}
-            _CEPH_FORMAT_: {get_param: CephStorageHostnameFormat}
-            _SWFT_FORMAT_: {get_param: ObjectStorageHostnameFormat}
+            _CTRL_FORMAT_ : {get_param: ControllerHostnameFormat}
+            _CMPT_FORMAT_ : {get_param: ComputeHostnameFormat}
+            _SRIOV_FORMAT_: {get_param: ComputeSriovHostnameFormat}
+            _DPDK_FORMAT_ : {get_param: ComputeDpdkHostnameFormat}
+            _CEPH_FORMAT_ : {get_param: CephStorageHostnameFormat}
+            _SWFT_FORMAT_ : {get_param: ObjectStorageHostnameFormat}
 
   init_disks:
     type: OS::Heat::SoftwareConfig
