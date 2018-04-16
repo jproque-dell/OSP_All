@@ -101,6 +101,7 @@ resources:
             -
               type: interface
               name: nic1
+              ethtool_opts: "-G ${DEVICE} rx 4096 tx 40966"
               use_dhcp: false
               dns_servers: {get_param: DnsServers}
               addresses:
@@ -129,9 +130,11 @@ resources:
                     -
                       type: interface
                       name: nic2
+                      ethtool_opts: "-G ${DEVICE} rx 4096 tx 4096"
                       primary: true
                     -
                       type: interface
+                      ethtool_opts: "-G ${DEVICE} rx 4096 tx 4096"
                       name: nic3
                 -
                   type: vlan

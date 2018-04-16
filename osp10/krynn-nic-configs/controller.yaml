@@ -101,6 +101,7 @@ resources:
             -
               type: interface
               name: nic1
+              ethtool_opts: "-G ${DEVICE} rx 4096 tx 4096"
               use_dhcp: false
               addresses:
                 -
@@ -126,10 +127,12 @@ resources:
                     -
                       type: interface
                       name: nic2
+                      ethtool_opts: "-G ${DEVICE} rx 4096 tx 4096"
                       primary: true
                     -
                       type: interface
                       name: nic3
+                      ethtool_opts: "-G ${DEVICE} rx 4096 tx 4096"
                 -
                   type: vlan
                   device: bond1
@@ -176,6 +179,8 @@ resources:
                 -
                   type: interface
                   name: nic4
+                  ethtool_opts: "-G ${DEVICE} rx 4096 tx 4096"
+                  use_dhcp: false
                 # Uncomment when including environments/network-management.yaml
                 # If setting default route on the Management interface, comment
                 # out the default route on the External interface. This will
