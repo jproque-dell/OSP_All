@@ -1,4 +1,4 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2016-04-08
 
 description: >
   Adds 'readonly' as a role in the Keystone DB..

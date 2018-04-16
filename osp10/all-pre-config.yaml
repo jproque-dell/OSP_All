@@ -1,4 +1,4 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2016-04-08
 description: 'Extra Post-Deployment Config, multiple'
 parameters:
   server:
@@ -7,14 +7,8 @@ parameters:
 
 # Note depends_on may be used for serialization if ordering is important
 resources:
-  RhelRegistrationPreConfig:
-    type: all-pre-config/rhel-registration.yaml
-    properties:
-        server: {get_param: server}
-
   CorpCertificateExtraPreConfig:
     type: all-pre-config/add-corp-certificate.yaml
-    depends_on: RhelRegistrationPreConfig
     properties:
         server: {get_param: server}
 
@@ -43,8 +37,7 @@ outputs:
     value:
       list_join:
       - ''
-      - - {get_attr: [RhelRegistrationPreConfig, deploy_stdout]}
-        - {get_attr: [CorpCertificateExtraPreConfig, deploy_stdout]}
+      - - {get_attr: [CorpCertificateExtraPreConfig, deploy_stdout]}
         - {get_attr: [TunedProfilePreConfig, deploy_stdout]}
         - {get_attr: [SetupNestedKVMPreConfig, deploy_stdout]}
         - {get_attr: [AllowInnoDBFilePerTablePreConfig, deploy_stdout]}

@@ -1,4 +1,4 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2016-04-08
 
 description: >
   Add root pubkey to authorized_keys on all nodes and enable RootLogin

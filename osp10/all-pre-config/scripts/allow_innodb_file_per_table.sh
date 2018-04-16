@@ -9,18 +9,14 @@ case ${my_node_role} in
 	CTRL)
 		if [ -f /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp ]; then
 cat > ${patch_file} << EOF
-*** /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp.orig      2017-01-02 19:13:30.000000000 -0500
---- /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp   2017-04-04 09:48:48.851488981 -0400
+*** /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp.orig	2017-11-30 18:02:58.031541005 +0000
+--- /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp	2017-11-30 18:04:06.967459344 +0000
 ***************
-*** 65,70 ****
---- 65,71 ----
-        'default-storage-engine'        => 'innodb',
-        'innodb_autoinc_lock_mode'      => '2',
-        'innodb_locks_unsafe_for_binlog'=> '1',
-+       'innodb_file_per_table'         => 'ON',
-        'query_cache_size'              => '0',
-        'query_cache_type'              => '0',
-        'bind-address'                  => $bind_address,
+*** 73,74 ****
+--- 73,75 ----
+        'default-storage-engine'         => 'innodb',
++       'innodb_file_per_table'          => 'ON',
+        'innodb_autoinc_lock_mode'       => '2',
 EOF
 			if [ -f ${patch_file} ]; then
 				sudo patch -p0 < \

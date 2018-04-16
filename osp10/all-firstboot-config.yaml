@@ -1,7 +1,11 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2016-04-08
 description: 'FirstBoot Configuration, multiple'
 
 parameters:
+  HostnameMap:
+    type: json
+    default: {}
+    description: Optional mapping to override hostnames
   ControllerHostnameFormat:
     type: string
     default: ""
@@ -20,6 +24,9 @@ parameters:
   ObjectStorageHostnameFormat:
     type: string
     default: ""
+  NetworkerHostnameFormat:
+    type: string
+    default: ""
   #
   emc_scaleio_ip1:
     default: ''
@@ -36,19 +43,32 @@ resources:
     properties:
       parts:
       - config: {get_resource: create_log_dir}
+      - config: {get_resource: save_hostname_map}
       - config: {get_resource: register_node_role}
       - config: {get_resource: init_disks}
       - config: {get_resource: iscsi_initname}
       - config: {get_resource: controller_fs_mongodb}
       - config: {get_resource: compute_fs_nova}
       - config: {get_resource: install_emc_scaleio}
-      - config: {get_resource: install_f5_lbaas_rpms}
-      - config: {get_resource: encapsulate_rootvol}
 
   create_log_dir:
     type: OS::Heat::SoftwareConfig
     properties:
       config: {get_file: all-firstboot-config/scripts/create_log_dir.sh}
+
+  save_hostname_map:
+    type: OS::Heat::CloudConfig
+    depends_on: create_log_dir
+    properties:
+      cloud_config:
+        write_files:
+          - path: /var/log/ospd/node_hostnamemap
+            content: 
+              str_replace:
+                template: |
+                  _hostnamemap_
+                params: 
+                  _hostnamemap_: {get_param: HostnameMap}
 
   register_node_role:
     type: OS::Heat::SoftwareConfig
@@ -65,6 +85,8 @@ resources:
             _DPDK_FORMAT_ : {get_param: ComputeDpdkHostnameFormat}
             _CEPH_FORMAT_ : {get_param: CephStorageHostnameFormat}
             _SWFT_FORMAT_ : {get_param: ObjectStorageHostnameFormat}
+            _NETWRK_FORMAT_ : {get_param: NetworkerHostnameFormat}
+            _hostnamemap_: {get_param: HostnameMap}
 
   init_disks:
     type: OS::Heat::SoftwareConfig
@@ -103,19 +125,6 @@ resources:
           params:
             _EMC_MDMIP1_: {get_param: emc_scaleio_ip1}
             _EMC_MDMIP2_: {get_param: emc_scaleio_ip2}
-
-  install_f5_lbaas_rpms:
-    type: OS::Heat::SoftwareConfig
-    depends_on: install_emc_scaleio
-    properties:
-      group: script
-      config: {get_file: all-firstboot-config/scripts/install_f5_lbaas_rpms.sh }
-
-  encapsulate_rootvol:
-    type: OS::Heat::SoftwareConfig
-    depends_on: [ compute_fs_nova, controller_fs_mongodb, install_f5_lbaas_rpms ]
-    properties:
-      config: {get_file: all-firstboot-config/scripts/encapsulate_rootvol.sh}
 
 outputs:
   OS::stack_id:

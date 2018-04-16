@@ -1,4 +1,4 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2016-04-08
 
 description: >
   Enabled F5 BigIP Openstack LBaaS Integration configuration..

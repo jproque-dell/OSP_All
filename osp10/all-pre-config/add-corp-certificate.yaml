@@ -1,4 +1,4 @@
-heat_template_version: 2014-10-16
+heat_template_version: 2016-04-08
 
 description: >
   Add CORP certificate under /etc/pki/ca-trust/source/anchors/corp.pem and symlink
