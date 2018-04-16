@@ -23,7 +23,7 @@ TOP_DIR="$(cd $(/usr/bin/dirname $(whence -- $0 || echo $0));pwd)/policydir"
 
 
 case ${my_node_role} in
-        CTRL)
+        Controller)
 	# Extract our binary payload:
 	/usr/bin/python -c "import sys,uu; uu.decode('$0', sys.stdout)" |/usr/bin/tar xvzf -
 
@@ -103,7 +103,7 @@ esac
 
 # Create readonly role using puppet on ctrl0
 case "${my_node_role}${my_node_index}" in
-	"CTRL0")
+	"Controller0")
 		echo "Creating readonly role on Galera using Controller0..."
 		/bin/puppet apply -e 'keystone_role { 'readonly':  ensure => present }'
 	;;

@@ -6,7 +6,7 @@ patch_file=/var/tmp/innodb_mysql.pp.patch
 
 #
 case ${my_node_role} in
-	CTRL)
+	Controller)
 		if [ -f /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp ]; then
 cat > ${patch_file} << EOF
 *** /usr/share/openstack-puppet/modules/tripleo/manifests/profile/pacemaker/database/mysql.pp.orig	2017-11-30 18:02:58.031541005 +0000

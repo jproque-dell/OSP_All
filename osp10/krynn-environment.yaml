@@ -10,24 +10,16 @@ resource_registry:
   OS::TripleO::NodeExtraConfigPost:             all-post-config.yaml
 
 parameter_defaults:
-  Debug: true
+  # See instead /usr/share/openstack-tripleo-heat-templates/environments/debug.yaml
+  Debug: False
   #
-  # CloudDomain: lasthome.solace.krynn
+  ValidateFqdn: yes
+  CloudDomain: lasthome.solace.krynn
   # CloudName: overcloud.lasthome.solace.krynn
   # CloudNameInternal: overcloud.internalapi.lasthome.solace.krynn
   # CloudNameStorage: overcloud.storage.lasthome.solace.krynn
   # CloudNameStorageManagement: overcloud.storagemgmt.lasthome.solace.krynn
   # CloudNameCtlplane: overcloud.ctlplane.lasthome.solace.krynn
-  # Flavors
-  OvercloudControlFlavor: control
-  OvercloudComputeFlavor: compute
-  OvercloudCephStorageFlavor: ceph-storage
-  #
-  # ControllerCount: 1
-  # ComputeCount: 1
-  # BlockStorageCount: 0
-  # ObjectStorageCount: 1
-  # CephStorageCount: 1
   #
   MysqlMaxConnections: 16384
   RabbitFDLimit: 65436
@@ -38,8 +30,12 @@ parameter_defaults:
   #
   ControllerHostnameFormat: 'krynn-ctrl-%index%'
   ComputeHostnameFormat: 'krynn-cmpt-%index%'
+  ComputeSriovHostnameFormat: 'krynn-cmptsiov-%index%'
+  ComputeDpdkHostnameFormat: 'krynn-cmptdpdk-%index%'
+  BlockStorageHostnameFormat: 'krynn-cndr-%index%'
   CephStorageHostnameFormat: 'krynn-ceph-%index%'
   ObjectStorageHostnameFormat: 'krynn-swift-%index%'
+  NetworkerHostnameFormat: 'krynn-netwrk-%index%'
   #
   # This section is where deployment-specific configuration is done
   # Customize the IP subnets to match the local environment
@@ -66,10 +62,10 @@ parameter_defaults:
   # CIDR subnet mask length for provisioning network
   ControlPlaneSubnetCidr: '24'
   # Gateway router for the provisioning network (or Undercloud IP)
-  ControlPlaneDefaultRoute: '10.20.0.2'
+  ControlPlaneDefaultRoute: '10.20.0.1'
   # Generally the IP of the Undercloud
   EC2MetadataIp: '10.20.0.2'
-  ControllerEnableSwiftStorage: true
+  ControllerEnableSwiftStorage: false
   #
   CinderEnableIscsiBackend: false
   NovaEnableRbdBackend: true
@@ -82,6 +78,11 @@ parameter_defaults:
   CinderRbdPoolName: volumes
   GlanceRbdPoolName: images
   #
+  # CeilometerMeterDispatcher: 'database'
+  # CeilometerMeterDispatcher: 'gnocchi'
+  #
+  # L2 pop is incompatible with L3 HA
+  NeutronEnableL2Pop: False
   NeutronEnableIsolatedMetadata: True
   NeutronVniRanges: [ "1:4094" ]
   # Set to empty string to enable multiple external networks or VLANs
@@ -91,6 +92,8 @@ parameter_defaults:
   NeutronNetworkType: 'vxlan,gre,vlan,flat'
   NeutronTunnelTypes: 'vxlan'
   NeutronL3HA: true
+  # The following switches to openvswitch-based conntrack firewalling:
+  NeutronOVSFirewallDriver: openvswitch
   #
   # Linux Bonds:
   BondInterfaceOvsOptions: "mode=active-backup miimon=200"
@@ -100,3 +103,12 @@ parameter_defaults:
   # BondInterfaceOvsOptions: "bond_mode=active-backup lacp=off other_config:bond-detect-mode=miimon other_config:bond-miimon-interval=500"
   #
   NetworkDeploymentActions: ['CREATE','UPDATE']
+  #
+  HostnameMap:
+    krynn-ceph-0: hosta
+    krynn-cmpt-0: hostb
+    krynn-cmpt-1: hostc
+    krynn-ctrl-0: hostd
+    krynn-ctrl-1: hoste
+    krynn-ctrl-2: hostf
+

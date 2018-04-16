@@ -28,8 +28,7 @@ if [ "x_CTRL_FORMAT_" != "x" ]; then
 	CTRL_FORMAT="$(echo _CTRL_FORMAT_|sed ${sed_fmt})"
 	echo "Controller Format: ${CTRL_FORMAT}, _CTRL_FORMAT_"
 	if [[ "${mhost}" == ${CTRL_FORMAT}* ]]; then
-		echo "Controller node detected..."
-		role="CTRL"
+		role="Controller"
 		idx=$(echo "${mhost}"| sed -e "s/${CTRL_FORMAT}//")
 	fi
 fi
@@ -39,8 +38,7 @@ if [ "x_CMPT_FORMAT_" != "x" ]; then
 	CMPT_FORMAT="$(echo _CMPT_FORMAT_|sed ${sed_fmt})"
 	echo "Compute Format: ${CMPT_FORMAT}, _CMPT_FORMAT_"
 	if [[ "${mhost}" == ${CMPT_FORMAT}* ]]; then
-		echo "Compute node detected..."
-		role="CMPT"
+		role="Compute"
 		idx=$(echo "${mhost}"| sed -e "s/${CMPT_FORMAT}//")
 	fi
 fi
@@ -50,8 +48,7 @@ if [ "x_SRIOV_FORMAT_" != "x" ]; then
 	SRIOV_FORMAT="$(echo _SRIOV_FORMAT_|sed ${sed_fmt})"
 	echo "SRIOV Compute Format: ${SRIOV_FORMAT}, _SRIOV_FORMAT_"
 	if [[ "${mhost}" == ${SRIOV_FORMAT}* ]]; then
-		echo "SRIOV Compute node detected..."
-		role="SRIOV"
+		role="ComputeSriov"
 		idx=$(echo "${mhost}"| sed -e "s/${SRIOV_FORMAT}//")
 	fi
 fi
@@ -61,9 +58,18 @@ if [ "x_DPDK_FORMAT_" != "x" ]; then
 	DPDK_FORMAT="$(echo _DPDK_FORMAT_|sed ${sed_fmt})"
 	echo "DPDK Compute Format: ${DPDK_FORMAT}, _DPDK_FORMAT_"
 	if [[ "${mhost}" == ${DPDK_FORMAT}* ]]; then
-		echo "DPDK Compute node detected..."
-		role="DPDK"
+		role="ComputeDpdk"
 		idx=$(echo "${mhost}"| sed -e "s/${DPDK_FORMAT}//")
+	fi
+fi
+
+# _CNDR_FORMAT_: {get_param: BlockStorageHostnameFormat}
+if [ "x_CNDR_FORMAT_" != "x" ]; then
+	CNDR_FORMAT="$(echo _CNDR_FORMAT_|sed ${sed_fmt})"
+	echo "Cinder Format: ${CNDR_FORMAT}, _CNDR_FORMAT_"
+	if [[ "${mhost}" == ${CNDR_FORMAT}* ]]; then
+		role="BlockStorage"
+		idx=$(echo "${mhost}"| sed -e "s/${CNDR_FORMAT}//")
 	fi
 fi
 
@@ -72,8 +78,7 @@ if [ "x_CEPH_FORMAT_" != "x" ]; then
 	CEPH_FORMAT="$(echo _CEPH_FORMAT_|sed ${sed_fmt})"
 	echo "Ceph Format: ${CEPH_FORMAT}, _CEPH_FORMAT_"
 	if [[ "${mhost}" == ${CEPH_FORMAT}* ]]; then
-		echo "Ceph node detected..."
-		role="CEPH"
+		role="CephStorage"
 		idx=$(echo "${mhost}"| sed -e "s/${CEPH_FORMAT}//")
 	fi
 fi
@@ -83,8 +88,7 @@ if [ "x_SWFT_FORMAT_" != "x" ]; then
 	SWFT_FORMAT="$(echo _SWFT_FORMAT_|sed ${sed_fmt})"
 	echo "Swift Format: ${SWFT_FORMAT}, _SWFT_FORMAT_"
 	if [[ "${mhost}" == ${SWFT_FORMAT}* ]]; then
-		echo "Swift node detected..."
-		role="SWFT"
+		role="ObjectStorage"
 		idx=$(echo "${mhost}"| sed -e "s/${SWFT_FORMAT}//")
 	fi
 fi
@@ -94,20 +98,20 @@ if [ "x_NETWRK_FORMAT_" != "x" ]; then
 	NETWRK_FORMAT="$(echo _NETWRK_FORMAT_|sed ${sed_fmt})"
 	echo "Networker Format: ${NETWRK_FORMAT}, _NETWRK_FORMAT_"
 	if [[ "${mhost}" == ${NETWRK_FORMAT}* ]]; then
-		echo "Networker node detected..."
-		role="NETWRK"
+		role="Networker"
 		idx=$(echo "${mhost}"| sed -e "s/${NETWRK_FORMAT}//")
 	fi
 fi
+echo "(II) ${role} node detected..."
 
 # cannot use curl -s http://169.254.169.254/latest/meta-data/instance-type here since it is not ready yet
 # Let's fetch it from cloud-init
 while [ ${i} -lt ${max} ]
 do
 	echo "Current loop: ${i} "
-	ec2_type=$(grep metadata /var/lib/cloud/instance/user-data.txt|xargs -n1|grep ^http|cut -d/ -f6|cut -d- -f5)
+	ec2_type=$(grep metadata_url /var/lib/cloud/instance/user-data.txt|xargs -n1|grep ^http|cut -d/ -f6|cut -d- -f5)
 	case "${ec2_type}" in
-		"Controller"|"NovaCompute"|"ComputeSriov"|"ComputeDpdk"|"CephStorage"|"ObjectStorage"|"Networker")
+		"Controller"|"NovaCompute"|"ComputeSriov"|"ComputeDpdk"|"BlockStorage"|"CephStorage"|"ObjectStorage"|"Networker")
 			break
 			;;
 		*)
@@ -126,31 +130,35 @@ else
 		case "${ec2_type}" in
 			"Controller")
 				echo "Controller node detected"
-				role="CTRL"
+				role="Controller"
 			;;
 			"NovaCompute")
 				echo "Compute node detected"
-				role="CMPT"
+				role="Compute"
 			;;
 			"ComputeSriov")
 				echo "SRIOV Compute node detected"
-				role="SRIOV"
+				role="ComputeSriov"
 			;;
 			"ComputeDpdk")
 				echo "DPDK Compute node detected"
-				role="DPDK"
+				role="ComputeDpdk"
+			;;
+			"BlockStorage")
+				echo "Cinder node detected"
+				role="BlockStorage"
 			;;
 			"CephStorage")
 				echo "Ceph node detected"
-				role="CEPH"
+				role="CephStorage"
 			;;
 			"ObjectStorage")
 				echo "Swift node detected"
-				role="SWFT"
+				role="ObjectStorage"
 			;;
 			"Networker")
 				echo "Networker node detected"
-				role="NETWRK"
+				role="Networker"
 			;;
 			*)
 				echo 'Not a recognized instance type! Check metadata_url /var/lib/cloud/instance/user-data.txt'

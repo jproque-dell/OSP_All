@@ -18,6 +18,9 @@ parameters:
   ComputeDpdkHostnameFormat:
     type: string
     default: ""
+  BlockStorageHostnameFormat:
+    type: string
+    default: ""
   CephStorageHostnameFormat:
     type: string
     default: ""
@@ -83,6 +86,7 @@ resources:
             _CMPT_FORMAT_ : {get_param: ComputeHostnameFormat}
             _SRIOV_FORMAT_: {get_param: ComputeSriovHostnameFormat}
             _DPDK_FORMAT_ : {get_param: ComputeDpdkHostnameFormat}
+            _CNDR_FORMAT_ : {get_param: BlockStorageHostnameFormat}
             _CEPH_FORMAT_ : {get_param: CephStorageHostnameFormat}
             _SWFT_FORMAT_ : {get_param: ObjectStorageHostnameFormat}
             _NETWRK_FORMAT_ : {get_param: NetworkerHostnameFormat}

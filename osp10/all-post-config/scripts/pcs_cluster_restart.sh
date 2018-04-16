@@ -7,7 +7,7 @@ max_ctrl_delay=180
 
 #
 case "${my_node_role}${my_node_index}" in
-        "CTRL0")
+        "Controller0")
 		echo "Doing PCS-specific cluster-wide restarts from Controller0..."
 		#pcs cluster stop --all
 		#pcs cluster start --all
@@ -19,13 +19,13 @@ esac
 
 # Wait some time as to avoid taking all services down on all controllers at the same time
 case ${my_node_role} in
-	CTRL)
+	Controller)
 	;;
 esac
 
 # Restart services...
 case ${my_node_role} in
-	CTRL)
+	Controller)
 		local_delay=$((${max_ctrl_delay} * ${my_node_index}))
 		echo "Waiting for ${local_delay} secs on Controller0..."
 		sleep ${local_delay}
@@ -36,14 +36,14 @@ case ${my_node_role} in
 		systemctl restart openstack-\*
 		systemctl restart httpd
 	;;
-	CMPT)
+	Compute)
 		echo "Doing Compute-specific restarts..."
 		sleep $(($(od -A n -t d -N 3 /dev/urandom) % 60))
 		systemctl restart neutron-\*
 		sleep $(($(od -A n -t d -N 3 /dev/urandom) % 60))
 		systemctl restart openstack-\*
 	;;
-	CEPH)
+	CephStorage)
 		echo "Doing Ceph-specific restarts..."
 		sleep $(($(od -A n -t d -N 3 /dev/urandom) % 60))
 		systemctl restart openstack-\*
@@ -52,7 +52,7 @@ esac
 
 # First pass of cleanups...
 case "${my_node_role}${my_node_index}" in
-        "CTRL0")
+        "Controller0")
 		echo "Doing PCS-specific cluster-wide cleanups from Controller0..."
 		sleep 30
 		pcs resource cleanup #--force

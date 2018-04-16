@@ -9,7 +9,7 @@ F5_DIR=/usr/lib/python2.7/site-packages/neutron_lbaas/drivers/f5
 
 #
 case ${my_node_role} in
-	CTRL)
+	Controller)
 		echo "Controller detected, continuing..."
 		echo -e "Install F5 service driver code on controller nodes \n"
 		mkdir ${F5_DIR}

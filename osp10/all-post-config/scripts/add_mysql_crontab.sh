@@ -6,7 +6,7 @@ my_node_role=$(cat /var/log/ospd/node_role)
 
 #
 case ${my_node_role} in
-	CTRL)
+	Controller)
 		if [ ! -f /var/spool/cron/root ]
 		then
 			mkdir /root/database_dumps

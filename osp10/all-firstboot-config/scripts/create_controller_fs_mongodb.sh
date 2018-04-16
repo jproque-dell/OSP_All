@@ -12,7 +12,7 @@ mypv=/dev/sdb
 myfs=/var/lib/mongodb
 
 case ${my_node_role} in
-	CTRL)
+	Controller)
 
 	echo -e "Creating volume group ${lvm_vg} with ${mypv} disk\n"
 	fdisk ${mypv} -l

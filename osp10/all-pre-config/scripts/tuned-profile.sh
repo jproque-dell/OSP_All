@@ -16,15 +16,15 @@ if [ ${HYPERVISORS} -ge 1 ]; then
 
 	# Setup perf profile
 	case ${my_node_role} in
-	CTRL)
+	Controller)
 		#/usr/sbin/tuned-adm profile latency-performance
 		/usr/sbin/tuned-adm profile virtual-guest
 		;;
-	CEPH)
+	CephStorage)
 		#/usr/sbin/tuned-adm profile throughput-performance
 		/usr/sbin/tuned-adm profile virtual-guest
 		;;
-	CMPT)
+	Compute)
 		#/usr/sbin/tuned-adm profile throughput-performance
 		/usr/sbin/tuned-adm profile virtual-guest
 		;;

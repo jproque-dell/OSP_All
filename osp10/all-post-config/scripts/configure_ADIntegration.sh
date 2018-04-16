@@ -27,11 +27,6 @@ my_node_role=$(cat /var/log/ospd/node_role)
 #
 #
 # VARIABLES
-# Overcloud node naming convention
-export CONTROLLER=controller
-export COMPUTE=compute
-export CEPH=ceph
-
 #variables
 myhostname=$(hostname -s)
 
@@ -58,7 +53,7 @@ esac
 # Determine to run only on Controller Nodes
 
 case ${my_node_role} in
-	CTRL)
+	Controller)
 		echo "Doing Controller-Specific configuration..."
 	        # SSL & Keystone Settings
 		openssl s_client -connect ${AD_DOMAIN}:636 -showcerts </dev/null 2>/dev/null|openssl x509 -outform PEM > /etc/pki/ca-trust/source/anchors/${AD_PRIMARY_DC}.pem
@@ -127,7 +122,7 @@ esac
 
 # Determine to run only on Compute Nodes
 case ${my_node_role} in
-	CMPT)
+	Compute)
 		echo "Doing Compute-Specific configuration..."
 	        # Compute Node specific settings
 		cinder_auth_uri=$(crudini --get /etc/cinder/cinder.conf keystone_authtoken auth_uri)
