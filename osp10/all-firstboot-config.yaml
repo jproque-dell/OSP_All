@@ -65,7 +65,7 @@ resources:
     properties:
       cloud_config:
         write_files:
-          - path: /var/log/ospd/node_hostnamemap
+          - path: /var/log/ospd/node_hostnamemap_raw
             content: 
               str_replace:
                 template: |
