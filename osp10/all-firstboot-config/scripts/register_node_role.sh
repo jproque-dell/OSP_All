@@ -161,7 +161,7 @@ else
 				role="Networker"
 			;;
 			*)
-				echo 'Not a recognized instance type! Check metadata_url /var/lib/cloud/instance/user-data.txt'
+				echo 'Not a recognized instance type! Check metadata_url in /var/lib/cloud/instance/user-data.txt'
 				exit 1
 			;;
 		esac
