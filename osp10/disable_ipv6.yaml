@@ -1,6 +1,6 @@
 # only accept_ra should be necessary
 parameter_defaults:
-  controllerExtraConfig:
+  ControllerExtraConfig:
     sysctl_settings:
       net.ipv6.conf.all.disable_ipv6:
         value: 1

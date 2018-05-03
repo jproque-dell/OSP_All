@@ -1,0 +1,8 @@
+parameter_defaults:
+  ControllerExtraConfig:
+    controller_classes:
+    - ::keystone::cron::token_flush
+    # controls keystone cronjob creation
+    keystone::cron::token_flush::hour: '"*"'
+    keystone::cron::token_flush::minute: 1
+    keystone::cron::token_flush::maxdelay: 1800

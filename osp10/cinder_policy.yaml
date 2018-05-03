@@ -1,0 +1,468 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        cinder::policy::policies: { 
+            "cinder-volume:create_volume_metadata": {
+              "key": "volume:create_volume_metadata",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:delete_snapshot_metadata": {
+              "key": "volume:delete_snapshot_metadata",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:failover_host": {
+              "key": "volume:failover_host",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:capabilities": {
+              "key": "volume_extension:capabilities",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_admin_actions:force_detach": {
+              "key": "volume_extension:volume_admin_actions:force_detach",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-backup:delete": {
+              "key": "backup:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_encryption_metadata": {
+              "key": "volume_extension:volume_encryption_metadata",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:volume_type_access": {
+              "key": "volume_extension:volume_type_access",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-message:get": {
+              "key": "message:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:quotas:update": {
+              "key": "volume_extension:quotas:update",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-snapshot_extension:snapshot_actions:update_snapshot_status": {
+              "key": "snapshot_extension:snapshot_actions:update_snapshot_status",
+              "value": "rule:deny_readonly"
+              }, 
+            "cinder-scheduler_extension:scheduler_stats:get_pools": {
+              "key": "scheduler_extension:scheduler_stats:get_pools",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-backup:restore": {
+              "key": "backup:restore",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_tenant_attribute": {
+              "key": "volume_extension:volume_tenant_attribute",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:services:update": {
+              "key": "volume_extension:services:update",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:snapshot_admin_actions:reset_status": {
+              "key": "volume_extension:snapshot_admin_actions:reset_status",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-group:create_group_snapshot": {
+              "key": "group:create_group_snapshot",
+              "value": "rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_admin_actions:force_delete": {
+              "key": "volume_extension:volume_admin_actions:force_delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume:update_readonly_flag": {
+              "key": "volume:update_readonly_flag",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-backup:backup-export": {
+              "key": "backup:backup-export",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-group:group_types_manage": {
+              "key": "group:group_types_manage",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-backup:backup-import": {
+              "key": "backup:backup-import",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-backup:get_all": {
+              "key": "backup:get_all",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-group:delete": {
+              "key": "group:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:types_manage": {
+              "key": "volume_extension:types_manage",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:replication:reenable": {
+              "key": "volume_extension:replication:reenable",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "cinder-group:get_all_group_snapshots": {
+              "key": "group:get_all_group_snapshots",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:update_volume_metadata": {
+              "key": "volume:update_volume_metadata",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:accept_transfer": {
+              "key": "volume:accept_transfer",
+              "value": "rule:deny_readonly"
+              }, 
+            "cinder-default": {
+              "key": "default",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:snapshot_admin_actions:force_delete": {
+              "key": "volume_extension:snapshot_admin_actions:force_delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_mig_status_attribute": {
+              "key": "volume_extension:volume_mig_status_attribute",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-admin_api": {
+              "key": "admin_api",
+              "value": "is_admin:True"
+              }, 
+            "cinder-consistencygroup:get_all": {
+              "key": "consistencygroup:get_all",
+              "value": "group:nobody"
+              }, 
+            "cinder-volume_extension:quota_classes": {
+              "key": "volume_extension:quota_classes",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-backup:create": {
+              "key": "backup:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "cinder-volume:get_all": {
+              "key": "volume:get_all",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-snapshot_extension:snapshot_unmanage": {
+              "key": "snapshot_extension:snapshot_unmanage",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_image_metadata": {
+              "key": "volume_extension:volume_image_metadata",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:update_snapshot_metadata": {
+              "key": "volume:update_snapshot_metadata",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_type_access:removeProjectAccess": {
+              "key": "volume_extension:volume_type_access:removeProjectAccess",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-group:create": {
+              "key": "group:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "cinder-volume:extend": {
+              "key": "volume:extend",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:get_snapshot_metadata": {
+              "key": "volume:get_snapshot_metadata",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:volume_admin_actions:migrate_volume_completion": {
+              "key": "volume_extension:volume_admin_actions:migrate_volume_completion",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-consistencygroup:create": {
+              "key": "consistencygroup:create",
+              "value": "group:nobody and rule:deny_readonly"
+              }, 
+            "cinder-volume:get_transfer": {
+              "key": "volume:get_transfer",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-group:get": {
+              "key": "group:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-group:update": {
+              "key": "group:update",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_manage": {
+              "key": "volume_extension:volume_manage",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume:get_snapshot": {
+              "key": "volume:get_snapshot",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:create": {
+              "key": "volume:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "cinder-volume:update_snapshot": {
+              "key": "volume:update_snapshot",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:quotas:show": {
+              "key": "volume_extension:quotas:show",
+              "value": ""
+              }, 
+            "cinder-volume_extension:hosts": {
+              "key": "volume_extension:hosts",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-group:update_group_snapshot": {
+              "key": "group:update_group_snapshot",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-clusters:get": {
+              "key": "clusters:get",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume:get_all_snapshots": {
+              "key": "volume:get_all_snapshots",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-group:get_group_snapshot": {
+              "key": "group:get_group_snapshot",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:get_all_transfers": {
+              "key": "volume:get_all_transfers",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-consistencygroup:get": {
+              "key": "consistencygroup:get",
+              "value": "group:nobody"
+              }, 
+            "cinder-consistencygroup:create_cgsnapshot": {
+              "key": "consistencygroup:create_cgsnapshot",
+              "value": "group:nobody and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:types_extra_specs": {
+              "key": "volume_extension:types_extra_specs",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume:get": {
+              "key": "volume:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:get_volume_metadata": {
+              "key": "volume:get_volume_metadata",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:backup_admin_actions:force_delete": {
+              "key": "volume_extension:backup_admin_actions:force_delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-consistencygroup:update": {
+              "key": "consistencygroup:update",
+              "value": "group:nobody and rule:deny_readonly"
+              }, 
+            "cinder-group:access_group_types_specs": {
+              "key": "group:access_group_types_specs",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:volume_unmanage": {
+              "key": "volume_extension:volume_unmanage",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:replication:promote": {
+              "key": "volume_extension:replication:promote",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:backup_admin_actions:reset_status": {
+              "key": "volume_extension:backup_admin_actions:reset_status",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-group:get_all": {
+              "key": "group:get_all",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-group:group_type_access": {
+              "key": "group:group_type_access",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:update_volume_admin_metadata": {
+              "key": "volume:update_volume_admin_metadata",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-clusters:update": {
+              "key": "clusters:update",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "is_admin:True or project_id:%(project_id)s"
+              }, 
+            "cinder-volume_extension:volume_admin_actions:reset_status": {
+              "key": "volume_extension:volume_admin_actions:reset_status",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_actions:upload_image": {
+              "key": "volume_extension:volume_actions:upload_image",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_actions:upload_public": {
+              "key": "volume_extension:volume_actions:upload_public",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:list_manageable": {
+              "key": "volume_extension:list_manageable",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:extended_snapshot_attributes": {
+              "key": "volume_extension:extended_snapshot_attributes",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume:delete_transfer": {
+              "key": "volume:delete_transfer",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:create_snapshot": {
+              "key": "volume:create_snapshot",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-snapshot_extension:list_manageable": {
+              "key": "snapshot_extension:list_manageable",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:quotas:delete": {
+              "key": "volume_extension:quotas:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-consistencygroup:delete": {
+              "key": "consistencygroup:delete",
+              "value": "group:nobody and rule:deny_readonly"
+              }, 
+            "cinder-consistencygroup:delete_cgsnapshot": {
+              "key": "consistencygroup:delete_cgsnapshot",
+              "value": "group:nobody and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_host_attribute": {
+              "key": "volume_extension:volume_host_attribute",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume:delete_volume_metadata": {
+              "key": "volume:delete_volume_metadata",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-backup:get": {
+              "key": "backup:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-group:group_types_specs": {
+              "key": "group:group_types_specs",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume:create_transfer": {
+              "key": "volume:create_transfer",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:retype": {
+              "key": "volume:retype",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-clusters:get_all": {
+              "key": "clusters:get_all",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:quota_classes:validate_setup_for_nested_quota_use": {
+              "key": "volume_extension:quota_classes:validate_setup_for_nested_quota_use",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-backup:update": {
+              "key": "backup:update",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:delete_snapshot": {
+              "key": "volume:delete_snapshot",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-snapshot_extension:snapshot_manage": {
+              "key": "snapshot_extension:snapshot_manage",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:volume_admin_actions:migrate_volume": {
+              "key": "volume_extension:volume_admin_actions:migrate_volume",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:services:index": {
+              "key": "volume_extension:services:index",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume:delete": {
+              "key": "volume:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume_extension:access_types_extra_specs": {
+              "key": "volume_extension:access_types_extra_specs",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:volume_type_encryption": {
+              "key": "volume_extension:volume_type_encryption",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-consistencygroup:get_all_cgsnapshots": {
+              "key": "consistencygroup:get_all_cgsnapshots",
+              "value": "group:nobody"
+              }, 
+            "cinder-volume:freeze_host": {
+              "key": "volume:freeze_host",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-message:delete": {
+              "key": "message:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-message:get_all": {
+              "key": "message:get_all",
+              "value": "rule:admin_or_owner"
+              }, 
+            "cinder-volume_extension:access_types_qos_specs_id": {
+              "key": "volume_extension:access_types_qos_specs_id",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume:update": {
+              "key": "volume:update",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-consistencygroup:get_cgsnapshot": {
+              "key": "consistencygroup:get_cgsnapshot",
+              "value": "group:nobody"
+              }, 
+            "cinder-group:delete_group_snapshot": {
+              "key": "group:delete_group_snapshot",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "cinder-volume:get_volume_admin_metadata": {
+              "key": "volume:get_volume_admin_metadata",
+              "value": "rule:admin_api"
+              }, 
+            "cinder-volume_extension:volume_type_access:addProjectAccess": {
+              "key": "volume_extension:volume_type_access:addProjectAccess",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "cinder-volume:thaw_host": {
+              "key": "volume:thaw_host",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }
+        }

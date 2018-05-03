@@ -1,0 +1,64 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        aodh::policy::policies: { 
+            "aodh-telemetry:create_alarm": {
+              "key": "telemetry:create_alarm",
+              "value": "rule:deny_readonly"
+              }, 
+            "aodh-telemetry:query_alarm": {
+              "key": "telemetry:query_alarm",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-telemetry:get_alarm": {
+              "key": "telemetry:get_alarm",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-telemetry:query_alarm_history": {
+              "key": "telemetry:query_alarm_history",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-default": {
+              "key": "default",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-telemetry:change_alarm_state": {
+              "key": "telemetry:change_alarm_state",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "aodh-telemetry:get_alarm_state": {
+              "key": "telemetry:get_alarm_state",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-telemetry:get_alarms": {
+              "key": "telemetry:get_alarms",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-segregation": {
+              "key": "segregation",
+              "value": "rule:context_is_admin"
+              }, 
+            "aodh-telemetry:alarm_history": {
+              "key": "telemetry:alarm_history",
+              "value": "rule:admin_or_owner"
+              }, 
+            "aodh-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "aodh-telemetry:delete_alarm": {
+              "key": "telemetry:delete_alarm",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "aodh-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "aodh-telemetry:change_alarm": {
+              "key": "telemetry:change_alarm",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "aodh-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "rule:context_is_admin or project_id:%(project_id)s"
+              }
+        }

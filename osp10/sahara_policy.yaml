@@ -1,0 +1,248 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        sahara::policy::policies: { 
+            "sahara-data-processing:jobs:get_all": {
+              "key": "data-processing:jobs:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:images:add_tags": {
+              "key": "data-processing:images:add_tags",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:images:register": {
+              "key": "data-processing:images:register",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:plugins:patch": {
+              "key": "data-processing:plugins:patch",
+              "value": "role:admin"
+              }, 
+            "sahara-data-processing:job-binaries:create": {
+              "key": "data-processing:job-binaries:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:node-group-templates:modify": {
+              "key": "data-processing:node-group-templates:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-executions:modify": {
+              "key": "data-processing:job-executions:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-types:get_all": {
+              "key": "data-processing:job-types:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:plugins:get": {
+              "key": "data-processing:plugins:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:cluster-templates:create": {
+              "key": "data-processing:cluster-templates:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binaries:delete": {
+              "key": "data-processing:job-binaries:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:plugins:get_version": {
+              "key": "data-processing:plugins:get_version",
+              "value": ""
+              }, 
+            "sahara-data-processing:cluster-templates:get_all": {
+              "key": "data-processing:cluster-templates:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:clusters:modify": {
+              "key": "data-processing:clusters:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:data-sources:delete": {
+              "key": "data-processing:data-sources:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binary-internals:get_all": {
+              "key": "data-processing:job-binary-internals:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:job-executions:delete": {
+              "key": "data-processing:job-executions:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binary-internals:create": {
+              "key": "data-processing:job-binary-internals:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:jobs:delete": {
+              "key": "data-processing:jobs:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-executions:cancel": {
+              "key": "data-processing:job-executions:cancel",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binaries:modify": {
+              "key": "data-processing:job-binaries:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binaries:get_all": {
+              "key": "data-processing:job-binaries:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:clusters:create": {
+              "key": "data-processing:clusters:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:node-group-templates:delete": {
+              "key": "data-processing:node-group-templates:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:clusters:scale": {
+              "key": "data-processing:clusters:scale",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-executions:refresh_status": {
+              "key": "data-processing:job-executions:refresh_status",
+              "value": ""
+              }, 
+            "sahara-data-processing:plugins:get_all": {
+              "key": "data-processing:plugins:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:job-binary-internals:get": {
+              "key": "data-processing:job-binary-internals:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:jobs:get": {
+              "key": "data-processing:jobs:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:job-binary-internals:delete": {
+              "key": "data-processing:job-binary-internals:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-executions:get": {
+              "key": "data-processing:job-executions:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:clusters:delete": {
+              "key": "data-processing:clusters:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:jobs:get_config_hints": {
+              "key": "data-processing:jobs:get_config_hints",
+              "value": ""
+              }, 
+            "sahara-data-processing:images:get_all": {
+              "key": "data-processing:images:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:images:get": {
+              "key": "data-processing:images:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:job-binaries:get": {
+              "key": "data-processing:job-binaries:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:job-binary-internals:get_data": {
+              "key": "data-processing:job-binary-internals:get_data",
+              "value": ""
+              }, 
+            "sahara-data-processing:node-group-templates:get": {
+              "key": "data-processing:node-group-templates:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:clusters:get_all": {
+              "key": "data-processing:clusters:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:data-sources:modify": {
+              "key": "data-processing:data-sources:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:images:unregister": {
+              "key": "data-processing:images:unregister",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:cluster-templates:modify": {
+              "key": "data-processing:cluster-templates:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:data-sources:register": {
+              "key": "data-processing:data-sources:register",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "sahara-data-processing:clusters:get": {
+              "key": "data-processing:clusters:get",
+              "value": ""
+              }, 
+            "sahara-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "sahara-data-processing:node-group-templates:create": {
+              "key": "data-processing:node-group-templates:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:plugins:convert_config": {
+              "key": "data-processing:plugins:convert_config",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-executions:get_all": {
+              "key": "data-processing:job-executions:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:jobs:execute": {
+              "key": "data-processing:jobs:execute",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:cluster-templates:delete": {
+              "key": "data-processing:cluster-templates:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binaries:get_data": {
+              "key": "data-processing:job-binaries:get_data",
+              "value": ""
+              }, 
+            "sahara-default": {
+              "key": "default",
+              "value": ""
+              }, 
+            "sahara-data-processing:data-sources:get_all": {
+              "key": "data-processing:data-sources:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:cluster-templates:get": {
+              "key": "data-processing:cluster-templates:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:images:remove_tags": {
+              "key": "data-processing:images:remove_tags",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:node-group-templates:get_all": {
+              "key": "data-processing:node-group-templates:get_all",
+              "value": ""
+              }, 
+            "sahara-data-processing:data-sources:get": {
+              "key": "data-processing:data-sources:get",
+              "value": ""
+              }, 
+            "sahara-data-processing:jobs:modify": {
+              "key": "data-processing:jobs:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:job-binary-internals:modify": {
+              "key": "data-processing:job-binary-internals:modify",
+              "value": "rule:deny_readonly"
+              }, 
+            "sahara-data-processing:jobs:create": {
+              "key": "data-processing:jobs:create",
+              "value": "rule:deny_readonly"
+              }
+        }
