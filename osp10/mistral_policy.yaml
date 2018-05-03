@@ -1,0 +1,208 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        mistral::policy::policies: { 
+            "mistral-actions:get": {
+              "key": "actions:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workflows:list": {
+              "key": "workflows:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workflows:delete": {
+              "key": "workflows:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-action_executions:list": {
+              "key": "action_executions:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-cron_triggers:list": {
+              "key": "cron_triggers:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-services:list": {
+              "key": "services:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-environments:update": {
+              "key": "environments:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-tasks:get": {
+              "key": "tasks:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-environments:delete": {
+              "key": "environments:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-members:create": {
+              "key": "members:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-actions:update": {
+              "key": "actions:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workbooks:get": {
+              "key": "workbooks:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-tasks:list": {
+              "key": "tasks:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-executions:get": {
+              "key": "executions:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-action_executions:get": {
+              "key": "action_executions:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-members:update": {
+              "key": "members:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-members:delete": {
+              "key": "members:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-event_triggers:update": {
+              "key": "event_triggers:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workbooks:list": {
+              "key": "workbooks:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-executions:delete": {
+              "key": "executions:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-cron_triggers:create": {
+              "key": "cron_triggers:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-cron_triggers:delete": {
+              "key": "cron_triggers:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-event_triggers:delete": {
+              "key": "event_triggers:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-event_triggers:create": {
+              "key": "event_triggers:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workbooks:create": {
+              "key": "workbooks:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-members:list": {
+              "key": "members:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-actions:delete": {
+              "key": "actions:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-tasks:update": {
+              "key": "tasks:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workflows:create": {
+              "key": "workflows:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-admin_only": {
+              "key": "admin_only",
+              "value": "is_admin:True"
+              }, 
+            "mistral-actions:list": {
+              "key": "actions:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workbooks:delete": {
+              "key": "workbooks:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-executions:update": {
+              "key": "executions:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-members:get": {
+              "key": "members:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-executions:list": {
+              "key": "executions:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-cron_triggers:get": {
+              "key": "cron_triggers:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-environments:list": {
+              "key": "environments:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-action_executions:delete": {
+              "key": "action_executions:delete",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workbooks:update": {
+              "key": "workbooks:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-executions:create": {
+              "key": "executions:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workflows:update": {
+              "key": "workflows:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-event_triggers:get": {
+              "key": "event_triggers:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-default": {
+              "key": "default",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-workflows:get": {
+              "key": "workflows:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-environments:get": {
+              "key": "environments:get",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-action_executions:update": {
+              "key": "action_executions:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-action_execution:create": {
+              "key": "action_execution:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-environments:create": {
+              "key": "environments:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-actions:create": {
+              "key": "actions:create",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-event_triggers:list": {
+              "key": "event_triggers:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "mistral-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "is_admin:True or project_id:%(project_id)s"
+              }
+        }

@@ -1,0 +1,1060 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        nova::policy::policies: { 
+            "nova-os_compute_api:os-evacuate": {
+              "key": "os_compute_api:os-evacuate",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-flavor-access:discoverable": {
+              "key": "os_compute_api:os-flavor-access:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:create": {
+              "key": "os_compute_api:servers:create",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-extended-volumes": {
+              "key": "os_compute_api:os-extended-volumes",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:servers:create:forced_host": {
+              "key": "os_compute_api:servers:create:forced_host",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-aggregates:remove_host": {
+              "key": "os_compute_api:os-aggregates:remove_host",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-context_is_advsvc": {
+              "key": "context_is_advsvc",
+              "value": "role:advsvc"
+              }, 
+            "nova-os_compute_api:os-volumes:discoverable": {
+              "key": "os_compute_api:os-volumes:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-baremetal-nodes:discoverable": {
+              "key": "os_compute_api:os-baremetal-nodes:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-console-output": {
+              "key": "os_compute_api:os-console-output",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-floating-ips": {
+              "key": "os_compute_api:os-floating-ips",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-aggregates:update": {
+              "key": "os_compute_api:os-aggregates:update",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:server-metadata:show": {
+              "key": "os_compute_api:server-metadata:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-pci:pci_servers": {
+              "key": "os_compute_api:os-pci:pci_servers",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:servers:start": {
+              "key": "os_compute_api:servers:start",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-create-backup:discoverable": {
+              "key": "os_compute_api:os-create-backup:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-keypairs:create": {
+              "key": "os_compute_api:os-keypairs:create",
+              "value": "rule:admin_api or user_id:%(user_id)s"
+              }, 
+            "nova-os_compute_api:os-shelve:discoverable": {
+              "key": "os_compute_api:os-shelve:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-floating-ip-dns:discoverable": {
+              "key": "os_compute_api:os-floating-ip-dns:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-hosts:discoverable": {
+              "key": "os_compute_api:os-hosts:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-agents:discoverable": {
+              "key": "os_compute_api:os-agents:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:create_image": {
+              "key": "os_compute_api:servers:create_image",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:ips:index": {
+              "key": "os_compute_api:ips:index",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-virtual-interfaces": {
+              "key": "os_compute_api:os-virtual-interfaces",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-consoles:discoverable": {
+              "key": "os_compute_api:os-consoles:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-consoles:create": {
+              "key": "os_compute_api:os-consoles:create",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-server-tags:delete_all": {
+              "key": "os_compute_api:os-server-tags:delete_all",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-migrate-server:discoverable": {
+              "key": "os_compute_api:os-migrate-server:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-keypairs:delete": {
+              "key": "os_compute_api:os-keypairs:delete",
+              "value": "rule:admin_api or user_id:%(user_id)s"
+              }, 
+            "nova-os_compute_api:os-console-auth-tokens:discoverable": {
+              "key": "os_compute_api:os-console-auth-tokens:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-floating-ips-bulk": {
+              "key": "os_compute_api:os-floating-ips-bulk",
+              "value": "rule:admin_api"
+              }, 
+            "nova-admin_api": {
+              "key": "admin_api",
+              "value": "is_admin:True"
+              }, 
+            "nova-os_compute_api:os-simple-tenant-usage:list": {
+              "key": "os_compute_api:os-simple-tenant-usage:list",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-quota-class-sets:show": {
+              "key": "os_compute_api:os-quota-class-sets:show",
+              "value": "is_admin:True or quota_class:%(quota_class)s"
+              }, 
+            "nova-os_compute_api:os-suspend-server:resume": {
+              "key": "os_compute_api:os-suspend-server:resume",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-tenant-networks": {
+              "key": "os_compute_api:os-tenant-networks",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:limits:discoverable": {
+              "key": "os_compute_api:limits:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-assisted-volume-snapshots:create": {
+              "key": "os_compute_api:os-assisted-volume-snapshots:create",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-aggregates:index": {
+              "key": "os_compute_api:os-aggregates:index",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-server-groups:discoverable": {
+              "key": "os_compute_api:os-server-groups:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-evacuate:discoverable": {
+              "key": "os_compute_api:os-evacuate:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-rescue:discoverable": {
+              "key": "os_compute_api:os-rescue:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-volumes-attachments:index": {
+              "key": "os_compute_api:os-volumes-attachments:index",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-server-password": {
+              "key": "os_compute_api:os-server-password",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-lock-server:discoverable": {
+              "key": "os_compute_api:os-lock-server:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-shelve:shelve_offload": {
+              "key": "os_compute_api:os-shelve:shelve_offload",
+              "value": "rule:admin_api"
+              }, 
+            "nova-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-aggregates:delete": {
+              "key": "os_compute_api:os-aggregates:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "nova-os_compute_api:os-attach-interfaces:discoverable": {
+              "key": "os_compute_api:os-attach-interfaces:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:server-metadata:index": {
+              "key": "os_compute_api:server-metadata:index",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-server-groups": {
+              "key": "os_compute_api:os-server-groups",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-cells:discoverable": {
+              "key": "os_compute_api:os-cells:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-aggregates:set_metadata": {
+              "key": "os_compute_api:os-aggregates:set_metadata",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-create-backup": {
+              "key": "os_compute_api:os-create-backup",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-security-group-default-rules:discoverable": {
+              "key": "os_compute_api:os-security-group-default-rules:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-deferred-delete:discoverable": {
+              "key": "os_compute_api:os-deferred-delete:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:server-metadata:delete": {
+              "key": "os_compute_api:server-metadata:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-floating-ips:discoverable": {
+              "key": "os_compute_api:os-floating-ips:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-pause-server:pause": {
+              "key": "os_compute_api:os-pause-server:pause",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-certificates:discoverable": {
+              "key": "os_compute_api:os-certificates:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:images:discoverable": {
+              "key": "os_compute_api:images:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-hide-server-addresses:discoverable": {
+              "key": "os_compute_api:os-hide-server-addresses:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-rescue": {
+              "key": "os_compute_api:os-rescue",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-simple-tenant-usage:discoverable": {
+              "key": "os_compute_api:os-simple-tenant-usage:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-extended-server-attributes": {
+              "key": "os_compute_api:os-extended-server-attributes",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-agents": {
+              "key": "os_compute_api:os-agents",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-server-tags:delete": {
+              "key": "os_compute_api:os-server-tags:delete",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-flavor-extra-specs:show": {
+              "key": "os_compute_api:os-flavor-extra-specs:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-attach-interfaces:delete": {
+              "key": "os_compute_api:os-attach-interfaces:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-extended-availability-zone": {
+              "key": "os_compute_api:os-extended-availability-zone",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-cloudpipe:discoverable": {
+              "key": "os_compute_api:os-cloudpipe:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-instance-actions:events": {
+              "key": "os_compute_api:os-instance-actions:events",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-scheduler-hints:discoverable": {
+              "key": "os_compute_api:os-scheduler-hints:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-fixed-ips": {
+              "key": "os_compute_api:os-fixed-ips",
+              "value": "rule:admin_api"
+              }, 
+            "nova-network:attach_external_network": {
+              "key": "network:attach_external_network",
+              "value": "is_admin:True"
+              }, 
+            "nova-os_compute_api:server-metadata:create": {
+              "key": "os_compute_api:server-metadata:create",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-admin-password:discoverable": {
+              "key": "os_compute_api:os-admin-password:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-shelve:shelve": {
+              "key": "os_compute_api:os-shelve:shelve",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-admin-actions:reset_network": {
+              "key": "os_compute_api:os-admin-actions:reset_network",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:servers:resize": {
+              "key": "os_compute_api:servers:resize",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-aggregates:add_host": {
+              "key": "os_compute_api:os-aggregates:add_host",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-fping": {
+              "key": "os_compute_api:os-fping",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-cells:update": {
+              "key": "os_compute_api:os-cells:update",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-floating-ip-dns:domain:delete": {
+              "key": "os_compute_api:os-floating-ip-dns:domain:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-server-password:discoverable": {
+              "key": "os_compute_api:os-server-password:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-diagnostics": {
+              "key": "os_compute_api:os-server-diagnostics",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:versions:discoverable": {
+              "key": "os_compute_api:versions:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-cells": {
+              "key": "os_compute_api:os-cells",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-admin-actions:discoverable": {
+              "key": "os_compute_api:os-admin-actions:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:detail:get_all_tenants": {
+              "key": "os_compute_api:servers:detail:get_all_tenants",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:servers:update": {
+              "key": "os_compute_api:servers:update",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-lock-server:unlock": {
+              "key": "os_compute_api:os-lock-server:unlock",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:server-metadata:discoverable": {
+              "key": "os_compute_api:server-metadata:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:image-size:discoverable": {
+              "key": "os_compute_api:image-size:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-certificates:show": {
+              "key": "os_compute_api:os-certificates:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-config-drive": {
+              "key": "os_compute_api:os-config-drive",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-regular_user": {
+              "key": "regular_user",
+              "value": "rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-migrations:index": {
+              "key": "os_compute_api:os-migrations:index",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-attach-interfaces:create": {
+              "key": "os_compute_api:os-attach-interfaces:create",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-volumes-attachments:create": {
+              "key": "os_compute_api:os-volumes-attachments:create",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-consoles:index": {
+              "key": "os_compute_api:os-consoles:index",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-quota-class-sets:discoverable": {
+              "key": "os_compute_api:os-quota-class-sets:discoverable",
+              "value": "@"
+              }, 
+            "nova-admin_or_network_owner": {
+              "key": "admin_or_network_owner",
+              "value": "rule:context_is_admin or tenant_id:%(network:tenant_id)s or role:network_admin"
+              }, 
+            "nova-os_compute_api:os-used-limits": {
+              "key": "os_compute_api:os-used-limits",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-instance-usage-audit-log": {
+              "key": "os_compute_api:os-instance-usage-audit-log",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-volumes-attachments:show": {
+              "key": "os_compute_api:os-volumes-attachments:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-block-device-mapping-v1:discoverable": {
+              "key": "os_compute_api:os-block-device-mapping-v1:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-admin-actions:reset_state": {
+              "key": "os_compute_api:os-admin-actions:reset_state",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-flavor-rxtx": {
+              "key": "os_compute_api:os-flavor-rxtx",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:servers:show": {
+              "key": "os_compute_api:servers:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-fping:all_tenants": {
+              "key": "os_compute_api:os-fping:all_tenants",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-server-diagnostics:discoverable": {
+              "key": "os_compute_api:os-server-diagnostics:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-flavor-extra-specs:create": {
+              "key": "os_compute_api:os-flavor-extra-specs:create",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-flavor-manage:discoverable": {
+              "key": "os_compute_api:os-flavor-manage:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-tags:index": {
+              "key": "os_compute_api:os-server-tags:index",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:confirm_resize": {
+              "key": "os_compute_api:servers:confirm_resize",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-flavor-extra-specs:index": {
+              "key": "os_compute_api:os-flavor-extra-specs:index",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-networks:discoverable": {
+              "key": "os_compute_api:os-networks:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-tenant-networks:discoverable": {
+              "key": "os_compute_api:os-tenant-networks:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-aggregates:discoverable": {
+              "key": "os_compute_api:os-aggregates:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-extended-status": {
+              "key": "os_compute_api:os-extended-status",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-volumes-attachments:discoverable": {
+              "key": "os_compute_api:os-volumes-attachments:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-assisted-volume-snapshots:delete": {
+              "key": "os_compute_api:os-assisted-volume-snapshots:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-user-data:discoverable": {
+              "key": "os_compute_api:os-user-data:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-security-groups:discoverable": {
+              "key": "os_compute_api:os-security-groups:discoverable",
+              "value": "@"
+              }, 
+            "nova-admin_owner_or_network_owner": {
+              "key": "admin_owner_or_network_owner",
+              "value": "rule:owner or rule:admin_or_network_owner"
+              }, 
+            "nova-os_compute_api:os-floating-ips-bulk:discoverable": {
+              "key": "os_compute_api:os-floating-ips-bulk:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-flavor-extra-specs:discoverable": {
+              "key": "os_compute_api:os-flavor-extra-specs:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:stop": {
+              "key": "os_compute_api:servers:stop",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-hypervisors": {
+              "key": "os_compute_api:os-hypervisors",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-consoles:show": {
+              "key": "os_compute_api:os-consoles:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:servers:migrations:show": {
+              "key": "os_compute_api:servers:migrations:show",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-admin-actions:inject_network_info": {
+              "key": "os_compute_api:os-admin-actions:inject_network_info",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:servers:create:attach_volume": {
+              "key": "os_compute_api:servers:create:attach_volume",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-virtual-interfaces:discoverable": {
+              "key": "os_compute_api:os-virtual-interfaces:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-flavor-access:add_tenant_access": {
+              "key": "os_compute_api:os-flavor-access:add_tenant_access",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-keypairs:show": {
+              "key": "os_compute_api:os-keypairs:show",
+              "value": "rule:admin_api or user_id:%(user_id)s"
+              }, 
+            "nova-os_compute_api:os-server-tags:update": {
+              "key": "os_compute_api:os-server-tags:update",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:image-metadata:discoverable": {
+              "key": "os_compute_api:image-metadata:discoverable",
+              "value": "@"
+              }, 
+            "nova-owner": {
+              "key": "owner",
+              "value": "tenant_id:%(tenant_id)s and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-quota-class-sets:update": {
+              "key": "os_compute_api:os-quota-class-sets:update",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:image-size": {
+              "key": "os_compute_api:image-size",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-migrate-server:migrate": {
+              "key": "os_compute_api:os-migrate-server:migrate",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:extensions": {
+              "key": "os_compute_api:extensions",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-remote-consoles:discoverable": {
+              "key": "os_compute_api:os-remote-consoles:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-flavor-access:remove_tenant_access": {
+              "key": "os_compute_api:os-flavor-access:remove_tenant_access",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-simple-tenant-usage:show": {
+              "key": "os_compute_api:os-simple-tenant-usage:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:servers:revert_resize": {
+              "key": "os_compute_api:servers:revert_resize",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-keypairs:index": {
+              "key": "os_compute_api:os-keypairs:index",
+              "value": "rule:admin_api or user_id:%(user_id)s"
+              }, 
+            "nova-os_compute_api:servers:index:get_all_tenants": {
+              "key": "os_compute_api:servers:index:get_all_tenants",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-fping:discoverable": {
+              "key": "os_compute_api:os-fping:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-keypairs:discoverable": {
+              "key": "os_compute_api:os-keypairs:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-quota-sets:show": {
+              "key": "os_compute_api:os-quota-sets:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-extended-status:discoverable": {
+              "key": "os_compute_api:os-extended-status:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:discoverable": {
+              "key": "os_compute_api:servers:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-config-drive:discoverable": {
+              "key": "os_compute_api:os-config-drive:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-pci:index": {
+              "key": "os_compute_api:os-pci:index",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-deferred-delete": {
+              "key": "os_compute_api:os-deferred-delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:ips:discoverable": {
+              "key": "os_compute_api:ips:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-hide-server-addresses": {
+              "key": "os_compute_api:os-hide-server-addresses",
+              "value": "is_admin:False"
+              }, 
+            "nova-os_compute_api:os-flavor-extra-specs:update": {
+              "key": "os_compute_api:os-flavor-extra-specs:update",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-pause-server:unpause": {
+              "key": "os_compute_api:os-pause-server:unpause",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-admin_only": {
+              "key": "admin_only",
+              "value": "rule:context_is_admin and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-availability-zone:list": {
+              "key": "os_compute_api:os-availability-zone:list",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-pause-server:discoverable": {
+              "key": "os_compute_api:os-pause-server:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:detail": {
+              "key": "os_compute_api:servers:detail",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-admin-actions": {
+              "key": "os_compute_api:os-admin-actions",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:extension_info:discoverable": {
+              "key": "os_compute_api:extension_info:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-pci:detail": {
+              "key": "os_compute_api:os-pci:detail",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:servers:rebuild": {
+              "key": "os_compute_api:servers:rebuild",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-used-limits:discoverable": {
+              "key": "os_compute_api:os-used-limits:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-floating-ip-dns:domain:update": {
+              "key": "os_compute_api:os-floating-ip-dns:domain:update",
+              "value": "rule:admin_api"
+              }, 
+            "nova-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "is_admin:True or project_id:%(project_id)s"
+              }, 
+            "nova-os_compute_api:os-quota-sets:delete": {
+              "key": "os_compute_api:os-quota-sets:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-server-external-events:create": {
+              "key": "os_compute_api:os-server-external-events:create",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-multiple-create:discoverable": {
+              "key": "os_compute_api:os-multiple-create:discoverable",
+              "value": "@ and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:servers:trigger_crash_dump": {
+              "key": "os_compute_api:servers:trigger_crash_dump",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-availability-zone:detail": {
+              "key": "os_compute_api:os-availability-zone:detail",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:flavors:discoverable": {
+              "key": "os_compute_api:flavors:discoverable",
+              "value": "@"
+              }, 
+            "nova-cells_scheduler_filter:TargetCellFilter": {
+              "key": "cells_scheduler_filter:TargetCellFilter",
+              "value": "is_admin:True"
+              }, 
+            "nova-os_compute_api:os-multinic:discoverable": {
+              "key": "os_compute_api:os-multinic:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-usage:discoverable": {
+              "key": "os_compute_api:os-server-usage:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-keypairs": {
+              "key": "os_compute_api:os-keypairs",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-flavor-manage": {
+              "key": "os_compute_api:os-flavor-manage",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-cloudpipe": {
+              "key": "os_compute_api:os-cloudpipe",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-certificates:create": {
+              "key": "os_compute_api:os-certificates:create",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-aggregates:show": {
+              "key": "os_compute_api:os-aggregates:show",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-cells:sync_instances": {
+              "key": "os_compute_api:os-cells:sync_instances",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-instance-actions:discoverable": {
+              "key": "os_compute_api:os-instance-actions:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-usage": {
+              "key": "os_compute_api:os-server-usage",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-services": {
+              "key": "os_compute_api:os-services",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:servers:migrations:force_complete": {
+              "key": "os_compute_api:servers:migrations:force_complete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-services:discoverable": {
+              "key": "os_compute_api:os-services:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-networks-associate:discoverable": {
+              "key": "os_compute_api:os-networks-associate:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:extensions:discoverable": {
+              "key": "os_compute_api:extensions:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:index": {
+              "key": "os_compute_api:servers:index",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-security-groups": {
+              "key": "os_compute_api:os-security-groups",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-volumes-attachments:update": {
+              "key": "os_compute_api:os-volumes-attachments:update",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-flavor-rxtx:discoverable": {
+              "key": "os_compute_api:os-flavor-rxtx:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-lock-server:lock": {
+              "key": "os_compute_api:os-lock-server:lock",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-suspend-server:suspend": {
+              "key": "os_compute_api:os-suspend-server:suspend",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:server-migrations:discoverable": {
+              "key": "os_compute_api:server-migrations:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-tags:update_all": {
+              "key": "os_compute_api:os-server-tags:update_all",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-block-device-mapping:discoverable": {
+              "key": "os_compute_api:os-block-device-mapping:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-networks:view": {
+              "key": "os_compute_api:os-networks:view",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-floating-ip-dns": {
+              "key": "os_compute_api:os-floating-ip-dns",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-quota-sets:update": {
+              "key": "os_compute_api:os-quota-sets:update",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-floating-ip-pools:discoverable": {
+              "key": "os_compute_api:os-floating-ip-pools:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-assisted-volume-snapshots:discoverable": {
+              "key": "os_compute_api:os-assisted-volume-snapshots:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-extended-volumes:discoverable": {
+              "key": "os_compute_api:os-extended-volumes:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-volumes": {
+              "key": "os_compute_api:os-volumes",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-floating-ip-pools": {
+              "key": "os_compute_api:os-floating-ip-pools",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-server-tags:discoverable": {
+              "key": "os_compute_api:os-server-tags:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-admin-password": {
+              "key": "os_compute_api:os-admin-password",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-baremetal-nodes": {
+              "key": "os_compute_api:os-baremetal-nodes",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-console-output:discoverable": {
+              "key": "os_compute_api:os-console-output:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:show:host_status": {
+              "key": "os_compute_api:servers:show:host_status",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-consoles:delete": {
+              "key": "os_compute_api:os-consoles:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-flavor-extra-specs:delete": {
+              "key": "os_compute_api:os-flavor-extra-specs:delete",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-migrations:discoverable": {
+              "key": "os_compute_api:os-migrations:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-aggregates:create": {
+              "key": "os_compute_api:os-aggregates:create",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-instance-usage-audit-log:discoverable": {
+              "key": "os_compute_api:os-instance-usage-audit-log:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-quota-sets:detail": {
+              "key": "os_compute_api:os-quota-sets:detail",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-lock-server:unlock:unlock_override": {
+              "key": "os_compute_api:os-lock-server:unlock:unlock_override",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:servers:create_image:allow_volume_backed": {
+              "key": "os_compute_api:servers:create_image:allow_volume_backed",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:flavors": {
+              "key": "os_compute_api:flavors",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-networks": {
+              "key": "os_compute_api:os-networks",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-pci:discoverable": {
+              "key": "os_compute_api:os-pci:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-tags:show": {
+              "key": "os_compute_api:os-server-tags:show",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-fixed-ips:discoverable": {
+              "key": "os_compute_api:os-fixed-ips:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-pci:show": {
+              "key": "os_compute_api:os-pci:show",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-cells:delete": {
+              "key": "os_compute_api:os-cells:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-instance-actions": {
+              "key": "os_compute_api:os-instance-actions",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:server-metadata:update_all": {
+              "key": "os_compute_api:server-metadata:update_all",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-security-group-default-rules": {
+              "key": "os_compute_api:os-security-group-default-rules",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:servers:reboot": {
+              "key": "os_compute_api:servers:reboot",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-networks-associate": {
+              "key": "os_compute_api:os-networks-associate",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-cells_scheduler_filter:DifferentCellFilter": {
+              "key": "cells_scheduler_filter:DifferentCellFilter",
+              "value": "is_admin:True"
+              }, 
+            "nova-os_compute_api:servers:migrations:index": {
+              "key": "os_compute_api:servers:migrations:index",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:os-availability-zone:discoverable": {
+              "key": "os_compute_api:os-availability-zone:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-extended-server-attributes:discoverable": {
+              "key": "os_compute_api:os-extended-server-attributes:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-quota-sets:defaults": {
+              "key": "os_compute_api:os-quota-sets:defaults",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-flavor-access": {
+              "key": "os_compute_api:os-flavor-access",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-remote-consoles": {
+              "key": "os_compute_api:os-remote-consoles",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-suspend-server:discoverable": {
+              "key": "os_compute_api:os-suspend-server:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:servers:delete": {
+              "key": "os_compute_api:servers:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-migrate-server:migrate_live": {
+              "key": "os_compute_api:os-migrate-server:migrate_live",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:servers:create:attach_network": {
+              "key": "os_compute_api:servers:create:attach_network",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-console-auth-tokens": {
+              "key": "os_compute_api:os-console-auth-tokens",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:ips:show": {
+              "key": "os_compute_api:ips:show",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-hypervisors:discoverable": {
+              "key": "os_compute_api:os-hypervisors:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-server-external-events:discoverable": {
+              "key": "os_compute_api:os-server-external-events:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-attach-interfaces": {
+              "key": "os_compute_api:os-attach-interfaces",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-hosts": {
+              "key": "os_compute_api:os-hosts",
+              "value": "rule:admin_api"
+              }, 
+            "nova-os_compute_api:servers:migrations:delete": {
+              "key": "os_compute_api:servers:migrations:delete",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-multinic": {
+              "key": "os_compute_api:os-multinic",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:os-extended-availability-zone:discoverable": {
+              "key": "os_compute_api:os-extended-availability-zone:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-shelve:unshelve": {
+              "key": "os_compute_api:os-shelve:unshelve",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:limits": {
+              "key": "os_compute_api:limits",
+              "value": "rule:admin_or_owner"
+              }, 
+            "nova-os_compute_api:server-metadata:update": {
+              "key": "os_compute_api:server-metadata:update",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-volumes-attachments:delete": {
+              "key": "os_compute_api:os-volumes-attachments:delete",
+              "value": "rule:admin_or_owner and rule:deny_readonly"
+              }, 
+            "nova-os_compute_api:os-quota-sets:discoverable": {
+              "key": "os_compute_api:os-quota-sets:discoverable",
+              "value": "@"
+              }, 
+            "nova-os_compute_api:os-cells:create": {
+              "key": "os_compute_api:os-cells:create",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }
+        }

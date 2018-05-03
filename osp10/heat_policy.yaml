@@ -1,0 +1,360 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        heat::policy::policies: { 
+            "heat-stacks:resource_schema": {
+              "key": "stacks:resource_schema",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:list_resource_types": {
+              "key": "stacks:list_resource_types",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-resource_types:OS::Nova::HostAggregate": {
+              "key": "resource_types:OS::Nova::HostAggregate",
+              "value": "rule:project_admin"
+              }, 
+            "heat-cloudwatch:ListMetrics": {
+              "key": "cloudwatch:ListMetrics",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:validate_template": {
+              "key": "stacks:validate_template",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-software_configs:create": {
+              "key": "software_configs:create",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-software_deployments:update": {
+              "key": "software_deployments:update",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-cloudformation:EstimateTemplateCost": {
+              "key": "cloudformation:EstimateTemplateCost",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-software_deployments:metadata": {
+              "key": "software_deployments:metadata",
+              "value": ""
+              }, 
+            "heat-stacks:generate_template": {
+              "key": "stacks:generate_template",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:list_snapshots": {
+              "key": "stacks:list_snapshots",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:ListStackResources": {
+              "key": "cloudformation:ListStackResources",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:DescribeAlarmHistory": {
+              "key": "cloudwatch:DescribeAlarmHistory",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-resource_types:OS::Cinder::VolumeType": {
+              "key": "resource_types:OS::Cinder::VolumeType",
+              "value": "rule:project_admin"
+              }, 
+            "heat-software_configs:show": {
+              "key": "software_configs:show",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:index": {
+              "key": "stacks:index",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:CancelUpdateStack": {
+              "key": "cloudformation:CancelUpdateStack",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-stacks:create": {
+              "key": "stacks:create",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "heat-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "heat-stacks:lookup": {
+              "key": "stacks:lookup",
+              "value": ""
+              }, 
+            "heat-resource:signal": {
+              "key": "resource:signal",
+              "value": ""
+              }, 
+            "heat-stacks:preview": {
+              "key": "stacks:preview",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-resource_types:OS::Cinder::EncryptedVolumeType": {
+              "key": "resource_types:OS::Cinder::EncryptedVolumeType",
+              "value": "rule:project_admin"
+              }, 
+            "heat-cloudformation:UpdateStack": {
+              "key": "cloudformation:UpdateStack",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-cloudformation:DeleteStack": {
+              "key": "cloudformation:DeleteStack",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-cloudwatch:EnableAlarmActions": {
+              "key": "cloudwatch:EnableAlarmActions",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-cloudwatch:DisableAlarmActions": {
+              "key": "cloudwatch:DisableAlarmActions",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-software_configs:delete": {
+              "key": "software_configs:delete",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-resource_types:OS::Neutron::QoSPolicy": {
+              "key": "resource_types:OS::Neutron::QoSPolicy",
+              "value": "rule:project_admin"
+              }, 
+            "heat-cloudformation:DescribeStackResources": {
+              "key": "cloudformation:DescribeStackResources",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-software_deployments:index": {
+              "key": "software_deployments:index",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:DescribeStackResource": {
+              "key": "cloudformation:DescribeStackResource",
+              "value": ""
+              }, 
+            "heat-stacks:delete_snapshot": {
+              "key": "stacks:delete_snapshot",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-resource:metadata": {
+              "key": "resource:metadata",
+              "value": ""
+              }, 
+            "heat-software_deployments:show": {
+              "key": "software_deployments:show",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:GetTemplate": {
+              "key": "cloudformation:GetTemplate",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:preview_update": {
+              "key": "stacks:preview_update",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-resource_types:OS::Neutron::QoSBandwidthLimitRule": {
+              "key": "resource_types:OS::Neutron::QoSBandwidthLimitRule",
+              "value": "rule:project_admin"
+              }, 
+            "heat-resource:show": {
+              "key": "resource:show",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-software_deployments:create": {
+              "key": "software_deployments:create",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-stacks:export": {
+              "key": "stacks:export",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:ValidateTemplate": {
+              "key": "cloudformation:ValidateTemplate",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:show": {
+              "key": "stacks:show",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:snapshot": {
+              "key": "stacks:snapshot",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-resource_types:OS::Cinder::Quota": {
+              "key": "resource_types:OS::Cinder::Quota",
+              "value": "rule:project_admin"
+              }, 
+            "heat-stacks:update": {
+              "key": "stacks:update",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-resource_types:OS::Manila::ShareType": {
+              "key": "resource_types:OS::Manila::ShareType",
+              "value": "rule:project_admin"
+              }, 
+            "heat-stacks:show_output": {
+              "key": "stacks:show_output",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:update_patch": {
+              "key": "stacks:update_patch",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-stacks:list_template_functions": {
+              "key": "stacks:list_template_functions",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:DescribeStackEvents": {
+              "key": "cloudformation:DescribeStackEvents",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-events:show": {
+              "key": "events:show",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-actions:action": {
+              "key": "actions:action",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:environment": {
+              "key": "stacks:environment",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:PutMetricAlarm": {
+              "key": "cloudwatch:PutMetricAlarm",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-software_deployments:delete": {
+              "key": "software_deployments:delete",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-stacks:show_snapshot": {
+              "key": "stacks:show_snapshot",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudformation:DescribeStacks": {
+              "key": "cloudformation:DescribeStacks",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:SetAlarmState": {
+              "key": "cloudwatch:SetAlarmState",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-resource:index": {
+              "key": "resource:index",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-resource:mark_unhealthy": {
+              "key": "resource:mark_unhealthy",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:DescribeAlarms": {
+              "key": "cloudwatch:DescribeAlarms",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:template": {
+              "key": "stacks:template",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:DeleteAlarms": {
+              "key": "cloudwatch:DeleteAlarms",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-resource_types:OS::Nova::Flavor": {
+              "key": "resource_types:OS::Nova::Flavor",
+              "value": "rule:project_admin"
+              }, 
+            "heat-cloudformation:ListStacks": {
+              "key": "cloudformation:ListStacks",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-resource_types:OS::Cinder::QoSSpecs": {
+              "key": "resource_types:OS::Cinder::QoSSpecs",
+              "value": "rule:project_admin"
+              }, 
+            "heat-stacks:restore_snapshot": {
+              "key": "stacks:restore_snapshot",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-stacks:abandon": {
+              "key": "stacks:abandon",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-events:index": {
+              "key": "events:index",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-deny_everybody": {
+              "key": "deny_everybody",
+              "value": "!"
+              }, 
+            "heat-software_configs:global_index": {
+              "key": "software_configs:global_index",
+              "value": "rule:deny_everybody"
+              }, 
+            "heat-stacks:detail": {
+              "key": "stacks:detail",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:preview_update_patch": {
+              "key": "stacks:preview_update_patch",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-deny_stack_user": {
+              "key": "deny_stack_user",
+              "value": "not role:heat_stack_user"
+              }, 
+            "heat-project_admin": {
+              "key": "project_admin",
+              "value": "role:admin"
+              }, 
+            "heat-stacks:global_index": {
+              "key": "stacks:global_index",
+              "value": "rule:deny_everybody"
+              }, 
+            "heat-service:index": {
+              "key": "service:index",
+              "value": "rule:context_is_admin"
+              }, 
+            "heat-stacks:delete": {
+              "key": "stacks:delete",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-cloudformation:CreateStack": {
+              "key": "cloudformation:CreateStack",
+              "value": "rule:deny_stack_user and rule:deny_readonly"
+              }, 
+            "heat-cloudwatch:PutMetricData": {
+              "key": "cloudwatch:PutMetricData",
+              "value": ""
+              }, 
+            "heat-software_configs:index": {
+              "key": "software_configs:index",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:GetMetricStatistics": {
+              "key": "cloudwatch:GetMetricStatistics",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:files": {
+              "key": "stacks:files",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:list_template_versions": {
+              "key": "stacks:list_template_versions",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-cloudwatch:DescribeAlarmsForMetric": {
+              "key": "cloudwatch:DescribeAlarmsForMetric",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-build_info:build_info": {
+              "key": "build_info:build_info",
+              "value": "rule:deny_stack_user"
+              }, 
+            "heat-stacks:list_outputs": {
+              "key": "stacks:list_outputs",
+              "value": "rule:deny_stack_user"
+              }
+        }

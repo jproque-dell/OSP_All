@@ -1,0 +1,140 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        gnocchi::policy::policies: { 
+            "gnocchi-list resource type": {
+              "key": "list resource type",
+              "value": ""
+              }, 
+            "gnocchi-delete resource type": {
+              "key": "delete resource type",
+              "value": "role:admin"
+              }, 
+            "gnocchi-create resource": {
+              "key": "create resource",
+              "value": "rule:deny_readonly"
+              }, 
+            "gnocchi-update resource type": {
+              "key": "update resource type",
+              "value": "role:admin"
+              }, 
+            "gnocchi-delete archive policy rule": {
+              "key": "delete archive policy rule",
+              "value": "role:admin"
+              }, 
+            "gnocchi-create archive policy rule": {
+              "key": "create archive policy rule",
+              "value": "role:admin"
+              }, 
+            "gnocchi-update resource": {
+              "key": "update resource",
+              "value": "rule:admin_or_creator"
+              }, 
+            "gnocchi-admin_or_creator": {
+              "key": "admin_or_creator",
+              "value": "role:admin or project_id:%(created_by_project_id)s"
+              }, 
+            "gnocchi-get status": {
+              "key": "get status",
+              "value": "role:admin"
+              }, 
+            "gnocchi-get resource type": {
+              "key": "get resource type",
+              "value": ""
+              }, 
+            "gnocchi-metric_owner": {
+              "key": "metric_owner",
+              "value": "project_id:%(resource.project_id)s"
+              }, 
+            "gnocchi-delete archive policy": {
+              "key": "delete archive policy",
+              "value": "role:admin"
+              }, 
+            "gnocchi-get archive policy": {
+              "key": "get archive policy",
+              "value": ""
+              }, 
+            "gnocchi-delete resources": {
+              "key": "delete resources",
+              "value": "rule:admin_or_creator"
+              }, 
+            "gnocchi-get resource": {
+              "key": "get resource",
+              "value": "rule:admin_or_creator or rule:resource_owner"
+              }, 
+            "gnocchi-post measures": {
+              "key": "post measures",
+              "value": "rule:admin_or_creator"
+              }, 
+            "gnocchi-get archive policy rule": {
+              "key": "get archive policy rule",
+              "value": ""
+              }, 
+            "gnocchi-resource_owner": {
+              "key": "resource_owner",
+              "value": "project_id:%(project_id)s"
+              }, 
+            "gnocchi-create resource type": {
+              "key": "create resource type",
+              "value": "role:admin"
+              }, 
+            "gnocchi-search metric": {
+              "key": "search metric",
+              "value": "rule:admin_or_creator or rule:metric_owner"
+              }, 
+            "gnocchi-delete resource": {
+              "key": "delete resource",
+              "value": "rule:admin_or_creator"
+              }, 
+            "gnocchi-search resource": {
+              "key": "search resource",
+              "value": "rule:admin_or_creator or rule:resource_owner"
+              }, 
+            "gnocchi-list resource": {
+              "key": "list resource",
+              "value": "rule:admin_or_creator or rule:resource_owner"
+              }, 
+            "gnocchi-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "gnocchi-list metric": {
+              "key": "list metric",
+              "value": ""
+              }, 
+            "gnocchi-list archive policy": {
+              "key": "list archive policy",
+              "value": ""
+              }, 
+            "gnocchi-delete metric": {
+              "key": "delete metric",
+              "value": "rule:admin_or_creator"
+              }, 
+            "gnocchi-update archive policy": {
+              "key": "update archive policy",
+              "value": "role:admin"
+              }, 
+            "gnocchi-create archive policy": {
+              "key": "create archive policy",
+              "value": "role:admin"
+              }, 
+            "gnocchi-get measures": {
+              "key": "get measures",
+              "value": "rule:admin_or_creator or rule:metric_owner or role:readonly"
+              }, 
+            "gnocchi-create metric": {
+              "key": "create metric",
+              "value": "rule:deny_readonly"
+              }, 
+            "gnocchi-list all metric": {
+              "key": "list all metric",
+              "value": "role:admin or role:readonly"
+              }, 
+            "gnocchi-get metric": {
+              "key": "get metric",
+              "value": "rule:admin_or_creator or rule:metric_owner or role:readonly"
+              }, 
+            "gnocchi-list archive policy rule": {
+              "key": "list archive policy rule",
+              "value": ""
+              }
+        }

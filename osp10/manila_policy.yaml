@@ -1,0 +1,468 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        manila::policy::policies: { 
+            "manila-consistency_group:reset_status": {
+              "key": "consistency_group:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_network:detail": {
+              "key": "share_network:detail",
+              "value": "rule:default"
+              }, 
+            "manila-share_network:index": {
+              "key": "share_network:index",
+              "value": "rule:default"
+              }, 
+            "manila-share:access_get": {
+              "key": "share:access_get",
+              "value": "rule:default"
+              }, 
+            "manila-quota_class_set:show": {
+              "key": "quota_class_set:show",
+              "value": "rule:default"
+              }, 
+            "manila-share:access_get_all": {
+              "key": "share:access_get_all",
+              "value": "rule:default"
+              }, 
+            "manila-share_replica:force_delete": {
+              "key": "share_replica:force_delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_instance:index": {
+              "key": "share_instance:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-scheduler_stats:pools:index": {
+              "key": "scheduler_stats:pools:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_instance_export_location:index": {
+              "key": "share_instance_export_location:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-consistency_group:delete": {
+              "key": "consistency_group:delete",
+              "value": "rule:default"
+              }, 
+            "manila-cgsnapshot:update": {
+              "key": "cgsnapshot:update",
+              "value": "rule:default"
+              }, 
+            "manila-share_server:show": {
+              "key": "share_server:show",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_type:index": {
+              "key": "share_type:index",
+              "value": "rule:default"
+              }, 
+            "manila-share:delete": {
+              "key": "share:delete",
+              "value": "rule:default"
+              }, 
+            "manila-consistency_group:get": {
+              "key": "consistency_group:get",
+              "value": "rule:default"
+              }, 
+            "manila-share_snapshot:snapshot_update": {
+              "key": "share_snapshot:snapshot_update",
+              "value": "rule:default"
+              }, 
+            "manila-share_snapshot:create_snapshot": {
+              "key": "share_snapshot:create_snapshot",
+              "value": "rule:default"
+              }, 
+            "manila-share_instance_export_location:show": {
+              "key": "share_instance_export_location:show",
+              "value": "rule:admin_api"
+              }, 
+            "manila-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "manila-scheduler_stats:pools:detail": {
+              "key": "scheduler_stats:pools:detail",
+              "value": "rule:admin_api"
+              }, 
+            "manila-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "manila-cgsnapshot:get_cgsnapshot": {
+              "key": "cgsnapshot:get_cgsnapshot",
+              "value": "rule:default"
+              }, 
+            "manila-share:migration_complete": {
+              "key": "share:migration_complete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_replica:show": {
+              "key": "share_replica:show",
+              "value": "rule:default"
+              }, 
+            "manila-share_replica:create": {
+              "key": "share_replica:create",
+              "value": "rule:default"
+              }, 
+            "manila-share_replica:promote": {
+              "key": "share_replica:promote",
+              "value": "rule:default"
+              }, 
+            "manila-share:get_all": {
+              "key": "share:get_all",
+              "value": "rule:default"
+              }, 
+            "manila-admin_api": {
+              "key": "admin_api",
+              "value": "is_admin:True"
+              }, 
+            "manila-share:get": {
+              "key": "share:get",
+              "value": "rule:default"
+              }, 
+            "manila-share_snapshot:delete_snapshot": {
+              "key": "share_snapshot:delete_snapshot",
+              "value": "rule:default"
+              }, 
+            "manila-share_instance:show": {
+              "key": "share_instance:show",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_replica:reset_replica_state": {
+              "key": "share_replica:reset_replica_state",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:list_by_share_server_id": {
+              "key": "share:list_by_share_server_id",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_type:show": {
+              "key": "share_type:show",
+              "value": "rule:default"
+              }, 
+            "manila-share:get_share_metadata": {
+              "key": "share:get_share_metadata",
+              "value": "rule:default"
+              }, 
+            "manila-share:migration_cancel": {
+              "key": "share:migration_cancel",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_replica:get_all": {
+              "key": "share_replica:get_all",
+              "value": "rule:default"
+              }, 
+            "manila-share_type:add_project_access": {
+              "key": "share_type:add_project_access",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "manila-share_network:create": {
+              "key": "share_network:create",
+              "value": "rule:default"
+              }, 
+            "manila-cgsnapshot:delete": {
+              "key": "cgsnapshot:delete",
+              "value": "rule:default"
+              }, 
+            "manila-share_types_extra_spec:delete": {
+              "key": "share_types_extra_spec:delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot:get_snapshot": {
+              "key": "share_snapshot:get_snapshot",
+              "value": "rule:default"
+              }, 
+            "manila-share:delete_share_metadata": {
+              "key": "share:delete_share_metadata",
+              "value": "rule:default"
+              }, 
+            "manila-share:allow_access": {
+              "key": "share:allow_access",
+              "value": "rule:default"
+              }, 
+            "manila-share_replica:resync": {
+              "key": "share_replica:resync",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:migration_start": {
+              "key": "share:migration_start",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot:force_delete": {
+              "key": "share_snapshot:force_delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_replica:reset_status": {
+              "key": "share_replica:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:reset_task_state": {
+              "key": "share:reset_task_state",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_type:remove_project_access": {
+              "key": "share_type:remove_project_access",
+              "value": "rule:admin_api and rule:deny_readonly"
+              }, 
+            "manila-consistency_group:force_delete": {
+              "key": "consistency_group:force_delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:create": {
+              "key": "share:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "manila-share:update_share_metadata": {
+              "key": "share:update_share_metadata",
+              "value": "rule:default"
+              }, 
+            "manila-share_instance:reset_status": {
+              "key": "share_instance:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:unmanage": {
+              "key": "share:unmanage",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_server:details": {
+              "key": "share_server:details",
+              "value": "rule:admin_api"
+              }, 
+            "manila-quota_set:update": {
+              "key": "quota_set:update",
+              "value": "rule:admin_api"
+              }, 
+            "manila-security_service:show": {
+              "key": "security_service:show",
+              "value": "rule:default"
+              }, 
+            "manila-share_type:delete": {
+              "key": "share_type:delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-security_service:update": {
+              "key": "security_service:update",
+              "value": "rule:default"
+              }, 
+            "manila-security_service:index": {
+              "key": "security_service:index",
+              "value": "rule:default"
+              }, 
+            "manila-security_service:create": {
+              "key": "security_service:create",
+              "value": "rule:default"
+              }, 
+            "manila-share:manage": {
+              "key": "share:manage",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_network:show": {
+              "key": "share_network:show",
+              "value": "rule:default"
+              }, 
+            "manila-security_service:delete": {
+              "key": "security_service:delete",
+              "value": "rule:default"
+              }, 
+            "manila-consistency_group:update": {
+              "key": "consistency_group:update",
+              "value": "rule:default"
+              }, 
+            "manila-share_instance:force_delete": {
+              "key": "share_instance:force_delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-security_service:get_all_security_services": {
+              "key": "security_service:get_all_security_services",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_types_extra_spec:show": {
+              "key": "share_types_extra_spec:show",
+              "value": "rule:admin_api"
+              }, 
+            "manila-quota_set:show": {
+              "key": "quota_set:show",
+              "value": "rule:default"
+              }, 
+            "manila-share_replica:delete": {
+              "key": "share_replica:delete",
+              "value": "rule:default"
+              }, 
+            "manila-share_type:create": {
+              "key": "share_type:create",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:force_delete": {
+              "key": "share:force_delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "is_admin:True or project_id:%(project_id)s"
+              }, 
+            "manila-share_type:list_project_access": {
+              "key": "share_type:list_project_access",
+              "value": "rule:admin_api"
+              }, 
+            "manila-consistency_group:create": {
+              "key": "consistency_group:create",
+              "value": "rule:default"
+              }, 
+            "manila-default": {
+              "key": "default",
+              "value": "rule:admin_or_owner"
+              }, 
+            "manila-share:reset_status": {
+              "key": "share:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot:get_all_snapshots": {
+              "key": "share_snapshot:get_all_snapshots",
+              "value": "rule:default"
+              }, 
+            "manila-share:deny_access": {
+              "key": "share:deny_access",
+              "value": "rule:default"
+              }, 
+            "manila-cgsnapshot:get_all": {
+              "key": "cgsnapshot:get_all",
+              "value": "rule:default"
+              }, 
+            "manila-share_snapshot:unmanage_snapshot": {
+              "key": "share_snapshot:unmanage_snapshot",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_network:delete": {
+              "key": "share_network:delete",
+              "value": "rule:default"
+              }, 
+            "manila-share_snapshot_instance:show": {
+              "key": "share_snapshot_instance:show",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot:manage_snapshot": {
+              "key": "share_snapshot:manage_snapshot",
+              "value": "rule:admin_api"
+              }, 
+            "manila-availability_zone:index": {
+              "key": "availability_zone:index",
+              "value": "rule:default"
+              }, 
+            "manila-cgsnapshot:create": {
+              "key": "cgsnapshot:create",
+              "value": "rule:default"
+              }, 
+            "manila-share_export_location:index": {
+              "key": "share_export_location:index",
+              "value": "rule:default"
+              }, 
+            "manila-share:shrink": {
+              "key": "share:shrink",
+              "value": "rule:default"
+              }, 
+            "manila-share:update": {
+              "key": "share:update",
+              "value": "rule:default"
+              }, 
+            "manila-consistency_group:get_all": {
+              "key": "consistency_group:get_all",
+              "value": "rule:default"
+              }, 
+            "manila-share_types_extra_spec:index": {
+              "key": "share_types_extra_spec:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-cgsnapshot:force_delete": {
+              "key": "cgsnapshot:force_delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-security_service:detail": {
+              "key": "security_service:detail",
+              "value": "rule:default"
+              }, 
+            "manila-share:migration_get_progress": {
+              "key": "share:migration_get_progress",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_type:default": {
+              "key": "share_type:default",
+              "value": "rule:default"
+              }, 
+            "manila-share_network:update": {
+              "key": "share_network:update",
+              "value": "rule:default"
+              }, 
+            "manila-quota_class_set:update": {
+              "key": "quota_class_set:update",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot_instance:detail": {
+              "key": "share_snapshot_instance:detail",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_network:add_security_service": {
+              "key": "share_network:add_security_service",
+              "value": "rule:default"
+              }, 
+            "manila-service:index": {
+              "key": "service:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_server:delete": {
+              "key": "share_server:delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-cgsnapshot:reset_status": {
+              "key": "cgsnapshot:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_server:index": {
+              "key": "share_server:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-quota_set:delete": {
+              "key": "quota_set:delete",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_types_extra_spec:create": {
+              "key": "share_types_extra_spec:create",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot_instance:reset_status": {
+              "key": "share_snapshot_instance:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_types_extra_spec:update": {
+              "key": "share_types_extra_spec:update",
+              "value": "rule:admin_api"
+              }, 
+            "manila-service:update": {
+              "key": "service:update",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot_instance:index": {
+              "key": "share_snapshot_instance:index",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_export_location:show": {
+              "key": "share_export_location:show",
+              "value": "rule:default"
+              }, 
+            "manila-share_network:remove_security_service": {
+              "key": "share_network:remove_security_service",
+              "value": "rule:default and rule:deny_readonly"
+              }, 
+            "manila-share_network:get_all_share_networks": {
+              "key": "share_network:get_all_share_networks",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share_snapshot:reset_status": {
+              "key": "share_snapshot:reset_status",
+              "value": "rule:admin_api"
+              }, 
+            "manila-share:extend": {
+              "key": "share:extend",
+              "value": "rule:default"
+              }
+        }

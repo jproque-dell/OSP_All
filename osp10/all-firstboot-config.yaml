@@ -30,6 +30,29 @@ parameters:
   NetworkerHostnameFormat:
     type: string
     default: ""
+  ComputeSriovHostIsolatedCoreList:
+    type: string
+    default: ""
+  ComputeSriovKernelArgs:
+    type: string
+    default: ""
+  ComputeDpdkHostIsolatedCoreList:
+    type: string
+    default: ""
+  ComputeDpdkKernelArgs:
+    type: string
+    default: ""
+  ComputeDpdkHostCpusList:
+    type: string
+    default: ""
+    constraints:
+      - allowed_pattern: "'[0-9,]+'"
+  NeutronDpdkCoreList:
+    type: string
+    default: ""
+  NeutronDpdkSocketMemory:
+    type: string
+    default: ""
   #
   emc_scaleio_ip1:
     default: ''
@@ -53,6 +76,13 @@ resources:
       - config: {get_resource: controller_fs_mongodb}
       - config: {get_resource: compute_fs_nova}
       - config: {get_resource: install_emc_scaleio}
+      - config: {get_resource: computesriov_install_tuned}
+      - config: {get_resource: computesriov_kernel_args}
+      - config: {get_resource: computedpdk_set_ovs_config}
+      - config: {get_resource: computedpdk_set_dpdk_params}
+      - config: {get_resource: computedpdk_install_tuned}
+      - config: {get_resource: computedpdk_kernel_args}
+      - config: {get_resource: encapsulate_rootvol}
 
   create_log_dir:
     type: OS::Heat::SoftwareConfig
@@ -75,7 +105,7 @@ resources:
 
   register_node_role:
     type: OS::Heat::SoftwareConfig
-    depends_on: create_log_dir
+    depends_on: [ create_log_dir, save_hostname_map ]
     properties:
       group: script
       config:
@@ -129,6 +159,76 @@ resources:
           params:
             _EMC_MDMIP1_: {get_param: emc_scaleio_ip1}
             _EMC_MDMIP2_: {get_param: emc_scaleio_ip2}
+
+  computesriov_install_tuned:
+    type: OS::Heat::SoftwareConfig
+    depends_on: register_node_role
+    properties:
+      config:
+        str_replace:
+          template: {get_file: all-firstboot-config/scripts/computesriov_install_tuned.sh}
+          params:
+            $TUNED_CORES: {get_param: ComputeSriovHostIsolatedCoreList}
+
+  computesriov_kernel_args:
+    type: OS::Heat::SoftwareConfig
+    depends_on: [ register_node_role, computesriov_install_tuned ]
+    properties:
+      group: script
+      config:
+        str_replace:
+          template: {get_file: all-firstboot-config/scripts/computesriov_kernel_args.sh}
+          params:
+            $KERNEL_ARGS: {get_param: ComputeSriovKernelArgs}
+            $TUNED_CORES: {get_param: ComputeSriovHostIsolatedCoreList}
+
+  computedpdk_set_ovs_config:
+    type: OS::Heat::SoftwareConfig
+    depends_on: register_node_role
+    properties:
+      config: {get_file: all-firstboot-config/scripts/computedpdk_set_ovs_config.sh}
+
+  computedpdk_set_dpdk_params:
+    type: OS::Heat::SoftwareConfig
+    depends_on: register_node_role
+    properties:
+      group: script
+      config:
+        str_replace:
+          template: {get_file: all-firstboot-config/scripts/computedpdk_set_dpdk_params.sh}
+          params:
+            $LCORE_LIST: {get_param: ComputeDpdkHostCpusList}
+            $PMD_CORES: {get_param: NeutronDpdkCoreList}
+            $SOCKET_MEMORY: {get_param: NeutronDpdkSocketMemory}
+
+  computedpdk_install_tuned:
+    type: OS::Heat::SoftwareConfig
+    depends_on: register_node_role
+    properties:
+      group: script
+      config:
+        str_replace:
+          template: {get_file: all-firstboot-config/scripts/computedpdk_install_tuned.sh}
+          params:
+            $TUNED_CORES: {get_param: ComputeDpdkHostIsolatedCoreList}
+
+  computedpdk_kernel_args:
+    type: OS::Heat::SoftwareConfig
+    depends_on: [ register_node_role, computedpdk_install_tuned, computedpdk_set_dpdk_params, computedpdk_set_ovs_config ]
+    properties:
+      group: script
+      config:
+        str_replace:
+          template: {get_file: all-firstboot-config/scripts/computedpdk_kernel_args.sh}
+          params:
+            $KERNEL_ARGS: {get_param: ComputeDpdkKernelArgs}
+            $TUNED_CORES: {get_param: ComputeDpdkHostIsolatedCoreList}
+
+  encapsulate_rootvol:
+    type: OS::Heat::SoftwareConfig
+    depends_on: [ compute_fs_nova, controller_fs_mongodb, install_emc_scaleio, computesriov_kernel_args, computedpdk_kernel_args ]
+    properties:
+      config: {get_file: all-firstboot-config/scripts/encapsulate_rootvol.sh}
 
 outputs:
   OS::stack_id:

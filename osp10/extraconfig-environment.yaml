@@ -1,33 +1,54 @@
 parameter_defaults:
+  token_flush_minute: [0, 20, 40]
   # EMC ScaleIO
   emc_scaleio_ip1: '10.128.19.81'
   emc_scaleio_ip2: '10.128.19.82'
   # Ad integration
   osp_ad_enable: 'False'
   osp_netbios_domain: 'KRYNN'
-  osp_ad_primary_dc: 'ad01.ad.lasthome.solace.krynn'
+  osp_ad_primary_dc: 'dc00.ad.lasthome.solace.krynn'
   osp_ad_domain: 'ad.lasthome.solace.krynn'
   # F5 parameters
   f5_icontrol_hostname: '10.128.19.83'
-  f5_env_prefix: 'nxgenaz3'
+  f5_env_prefix: 'krynnaz3'
   #
+  tripleo::profile::base::database::mysql::innodb_buffer_pool_size: 256M
   # Disable insecure protocols:
   tripleo::loadbalancer::ssl_cipher_suite: "ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AES:RSA+3DES:!ADH:!AECDH:!MD5:!DSS"
   tripleo::loadbalancer::ssl_options: "no-sslv3 "
-  controllerExtraConfig:
+  #
+  ComputeSriovKernelArgs: "intel_iommu=on default_hugepagesz=1GB hugepagesz=1G hugepages=128"
+  ComputeSriovHostIsolatedCoreList: '4-21,48-65,26-43,70-87'
+  #
+  ComputeDpdkKernelArgs: "intel_iommu=on default_hugepagesz=1GB hugepagesz=1G hugepages=128"
+  ComputeDpdkHostIsolatedCoreList: '4-21,48-65,26-43,70-87'
+  ComputeDpdkHostCpusList: "'2,46,24,68'"
+  NeutronDpdkCoreList: "'3,47,25,69'"
+  NeutronDpdkMemoryChannels: "4"
+  NeutronDpdkSocketMemory: "2048,2048"
+  NeutronDpdkDriverType: "vfio-pci"
+  NeutronDatapathType: "netdev"
+  NeutronVhostuserSocketDir: "/var/run/openvswitch"
+  #
+  ControllerExtraConfig:
     controller_classes:
     - ::ceilometer::config
     - ::cinder::config
     - ::glance::config
     - ::nova::config
     - ::neutron::config
+    - ::keystone::cron::token_flush
     # LBaas
     horizon::neutron_options:       
       enable_lb: true
+    horizon::cinder_options:
+      enable_backup: True
     neutron::agents::lbaas::manage_haproxy_package: false
     neutron::agents::lbaas::enabled: true
     neutron::agents::lbaas::manage_service: true
     neutron::agents::lbaas::user_group: "haproxy"
+    #
+    neutron::agents::l3::enable_metadata_proxy: True
     # Prevent ARP spoofing OVS:
     neutron::agents::ml2::ovs::prevent_arp_spoofing: false
     # Allow only 1 L3 HA router
@@ -66,19 +87,23 @@ parameter_defaults:
         scaleio/volume_backend_name:
             value: 'scaleio'
     # nova
-    #nova::api::auth_version: 'v3'
     nova::config::nova_config:
       libvirt/volume_use_multipath:
         value: 'True'
+      libvirt/live_migration_permit_post_copy:
+        value: 'True'
+    # Keystone cronjob
+    #### keystone::cron::token_flush::minute: {get_param: [token_flush_minute, {get_param: nodeindex}]}
 
   NovaComputeExtraConfig:
     compute_classes:
     - ::nova::config
-    #nova::api::auth_version: 'v3'
     nova::config::nova_config:
       DEFAULT/allow_migrate_to_same_host:
         value: 'True'
       libvirt/volume_use_multipath:
+        value: 'True'
+      libvirt/live_migration_permit_post_copy:
         value: 'True'
       # Workaround for: https://bugzilla.redhat.com/show_bug.cgi?id=1372763
       libvirt/mem_stats_period_seconds:
@@ -86,4 +111,16 @@ parameter_defaults:
       # Multiple ephemeral disks
       DEFAULT/max_local_block_devices:
         value: '4'
-      
+    nova::compute::resume_guests_state_on_host_boot: true
+
+  # Networker Extraconfig
+  NetworkerExtraConfig:
+    neutron::plugins::ml2::path_mtu: 1550
+
+  # SRIOV Extraconfig
+  ComputeSriovExtraConfig:
+    neutron::plugins::ml2::path_mtu: 1550
+    neutron::plugins::ml2::tenant_network_types: 'vlan' # NeutronNetworkType
+    neutron::agents::ml2::ovs::tunnel_types: 'vxlan' # NeutronTunnelTypes
+
+
