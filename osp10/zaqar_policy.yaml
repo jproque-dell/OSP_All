@@ -1,0 +1,156 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        zaqar::policy::policies: { 
+            "zaqar-subscription:create": {
+              "key": "subscription:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-claims:update": {
+              "key": "claims:update",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-messages:get_all": {
+              "key": "messages:get_all",
+              "value": ""
+              }, 
+            "zaqar-messages:delete_all": {
+              "key": "messages:delete_all",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-pools:get_all": {
+              "key": "pools:get_all",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-pools:get": {
+              "key": "pools:get",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-queues:create": {
+              "key": "queues:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-flavors:update": {
+              "key": "flavors:update",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-health:get": {
+              "key": "health:get",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-messages:get": {
+              "key": "messages:get",
+              "value": ""
+              }, 
+            "zaqar-queues:get": {
+              "key": "queues:get",
+              "value": ""
+              }, 
+            "zaqar-subscription:confirm": {
+              "key": "subscription:confirm",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-ping:get": {
+              "key": "ping:get",
+              "value": ""
+              }, 
+            "zaqar-queues:stats": {
+              "key": "queues:stats",
+              "value": ""
+              }, 
+            "zaqar-queues:get_all": {
+              "key": "queues:get_all",
+              "value": ""
+              }, 
+            "zaqar-flavors:create": {
+              "key": "flavors:create",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-queues:update": {
+              "key": "queues:update",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-pools:delete": {
+              "key": "pools:delete",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-queues:delete": {
+              "key": "queues:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-subscription:update": {
+              "key": "subscription:update",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-flavors:get": {
+              "key": "flavors:get",
+              "value": ""
+              }, 
+            "zaqar-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "is_admin:True or project_id:%(project_id)s"
+              }, 
+            "zaqar-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "zaqar-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "zaqar-pools:update": {
+              "key": "pools:update",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-messages:delete": {
+              "key": "messages:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-pools:create": {
+              "key": "pools:create",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-claims:create": {
+              "key": "claims:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-claims:delete": {
+              "key": "claims:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-claims:get_all": {
+              "key": "claims:get_all",
+              "value": ""
+              }, 
+            "zaqar-default": {
+              "key": "default",
+              "value": "rule:admin_or_owner"
+              }, 
+            "zaqar-subscription:get_all": {
+              "key": "subscription:get_all",
+              "value": ""
+              }, 
+            "zaqar-claims:get": {
+              "key": "claims:get",
+              "value": ""
+              }, 
+            "zaqar-flavors:delete": {
+              "key": "flavors:delete",
+              "value": "rule:context_is_admin"
+              }, 
+            "zaqar-subscription:get": {
+              "key": "subscription:get",
+              "value": ""
+              }, 
+            "zaqar-subscription:delete": {
+              "key": "subscription:delete",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-messages:create": {
+              "key": "messages:create",
+              "value": "rule:deny_readonly"
+              }, 
+            "zaqar-flavors:get_all": {
+              "key": "flavors:get_all",
+              "value": ""
+              }
+        }

@@ -9,7 +9,7 @@ parameter_defaults:
   rhel_reg_force: ""
   rhel_reg_machine_name: ""
   rhel_reg_org: ""
-  rhel_reg_password: "***REMOVED***"
+  rhel_reg_password: "D%nb0b17"
   rhel_reg_pool_id: "8a85f981568e999d01568ed2241a67c2"
   rhel_reg_auto_attach: ""
   rhel_reg_release: ""

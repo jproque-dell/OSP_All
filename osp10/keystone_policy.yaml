@@ -1,0 +1,672 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        keystone::policy::policies: { 
+            "keystone-identity:delete_project": {
+              "key": "identity:delete_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_policy_association_for_service": {
+              "key": "identity:delete_policy_association_for_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_region": {
+              "key": "identity:get_region",
+              "value": ""
+              }, 
+            "keystone-identity:create_implied_role": {
+              "key": "identity:create_implied_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_endpoint_groups": {
+              "key": "identity:list_endpoint_groups",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_endpoints_associated_with_endpoint_group": {
+              "key": "identity:list_endpoints_associated_with_endpoint_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_auth_catalog": {
+              "key": "identity:get_auth_catalog",
+              "value": ""
+              }, 
+            "keystone-identity:list_access_tokens": {
+              "key": "identity:list_access_tokens",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_trusts": {
+              "key": "identity:list_trusts",
+              "value": ""
+              }, 
+            "keystone-identity:delete_implied_role": {
+              "key": "identity:delete_implied_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_domain_config_default": {
+              "key": "identity:get_domain_config_default",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_service": {
+              "key": "identity:update_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_domain_config": {
+              "key": "identity:create_domain_config",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_service": {
+              "key": "identity:delete_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_mapping": {
+              "key": "identity:update_mapping",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_domains": {
+              "key": "identity:list_domains",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_policies": {
+              "key": "identity:list_policies",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_endpoint_group": {
+              "key": "identity:update_endpoint_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-service_role": {
+              "key": "service_role",
+              "value": "role:service"
+              }, 
+            "keystone-identity:add_user_to_group": {
+              "key": "identity:add_user_to_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_policy_association_for_service": {
+              "key": "identity:create_policy_association_for_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_endpoint_group": {
+              "key": "identity:delete_endpoint_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_endpoint_group_in_project": {
+              "key": "identity:get_endpoint_group_in_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_identity_provider": {
+              "key": "identity:delete_identity_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_domain_role": {
+              "key": "identity:create_domain_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "keystone-identity:list_credentials": {
+              "key": "identity:list_credentials",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_protocol": {
+              "key": "identity:create_protocol",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:check_user_in_group": {
+              "key": "identity:check_user_in_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_policy_association_for_region_and_service": {
+              "key": "identity:delete_policy_association_for_region_and_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_user": {
+              "key": "identity:create_user",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_policy_for_endpoint": {
+              "key": "identity:get_policy_for_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_consumer": {
+              "key": "identity:update_consumer",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_grant": {
+              "key": "identity:create_grant",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_projects_associated_with_endpoint_group": {
+              "key": "identity:list_projects_associated_with_endpoint_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_groups": {
+              "key": "identity:list_groups",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:validate_token": {
+              "key": "identity:validate_token",
+              "value": "rule:service_admin_or_token_subject"
+              }, 
+            "keystone-identity:create_endpoint": {
+              "key": "identity:create_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:check_token": {
+              "key": "identity:check_token",
+              "value": "rule:admin_or_token_subject"
+              }, 
+            "keystone-identity:ec2_create_credential": {
+              "key": "identity:ec2_create_credential",
+              "value": "rule:admin_or_owner"
+              }, 
+            "keystone-identity:ec2_get_credential": {
+              "key": "identity:ec2_get_credential",
+              "value": "rule:admin_required or (rule:owner and user_id:%(target.credential.user_id)s)"
+              }, 
+            "keystone-identity:revocation_list": {
+              "key": "identity:revocation_list",
+              "value": "rule:service_or_admin"
+              }, 
+            "keystone-identity:delete_domain_role": {
+              "key": "identity:delete_domain_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_mapping": {
+              "key": "identity:delete_mapping",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_endpoints_for_policy": {
+              "key": "identity:list_endpoints_for_policy",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_service_provider": {
+              "key": "identity:update_service_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_endpoint_groups_for_project": {
+              "key": "identity:list_endpoint_groups_for_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:ec2_delete_credential": {
+              "key": "identity:ec2_delete_credential",
+              "value": "rule:admin_required or (rule:owner and user_id:%(target.credential.user_id)s)"
+              }, 
+            "keystone-identity:get_user": {
+              "key": "identity:get_user",
+              "value": "rule:admin_or_owner"
+              }, 
+            "keystone-identity:delete_domain_config": {
+              "key": "identity:delete_domain_config",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:check_grant": {
+              "key": "identity:check_grant",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_domain": {
+              "key": "identity:update_domain",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_endpoint": {
+              "key": "identity:get_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_access_token": {
+              "key": "identity:get_access_token",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_identity_provider": {
+              "key": "identity:update_identity_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:authorize_request_token": {
+              "key": "identity:authorize_request_token",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_regions": {
+              "key": "identity:list_regions",
+              "value": ""
+              }, 
+            "keystone-identity:list_endpoints_for_project": {
+              "key": "identity:list_endpoints_for_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-service_admin_or_token_subject": {
+              "key": "service_admin_or_token_subject",
+              "value": "rule:service_or_admin or rule:token_subject"
+              }, 
+            "keystone-identity:list_revoke_events": {
+              "key": "identity:list_revoke_events",
+              "value": ""
+              }, 
+            "keystone-identity:create_identity_provider": {
+              "key": "identity:create_identity_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_service_provider": {
+              "key": "identity:delete_service_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:remove_endpoint_group_from_project": {
+              "key": "identity:remove_endpoint_group_from_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_endpoint": {
+              "key": "identity:delete_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_project": {
+              "key": "identity:create_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_identity_providers": {
+              "key": "identity:list_identity_providers",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_endpoint": {
+              "key": "identity:update_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_trust": {
+              "key": "identity:create_trust",
+              "value": "user_id:%(trust.trustor_user_id)s"
+              }, 
+            "keystone-identity:check_implied_role": {
+              "key": "identity:check_implied_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_auth_projects": {
+              "key": "identity:get_auth_projects",
+              "value": ""
+              }, 
+            "keystone-identity:list_projects": {
+              "key": "identity:list_projects",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_projects_for_user": {
+              "key": "identity:list_projects_for_user",
+              "value": ""
+              }, 
+            "keystone-identity:list_services": {
+              "key": "identity:list_services",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_trust": {
+              "key": "identity:delete_trust",
+              "value": "rule:deny_readonly"
+              }, 
+            "keystone-identity:update_protocol": {
+              "key": "identity:update_protocol",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_role": {
+              "key": "identity:update_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_identity_providers": {
+              "key": "identity:get_identity_providers",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_domain": {
+              "key": "identity:create_domain",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_service_provider": {
+              "key": "identity:create_service_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_credential": {
+              "key": "identity:create_credential",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_domains_for_user": {
+              "key": "identity:list_domains_for_user",
+              "value": ""
+              }, 
+            "keystone-identity:delete_policy": {
+              "key": "identity:delete_policy",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_role": {
+              "key": "identity:delete_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_role": {
+              "key": "identity:create_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_consumers": {
+              "key": "identity:list_consumers",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_role_for_trust": {
+              "key": "identity:get_role_for_trust",
+              "value": ""
+              }, 
+            "keystone-admin_or_token_subject": {
+              "key": "admin_or_token_subject",
+              "value": "rule:admin_required or rule:token_subject"
+              }, 
+            "keystone-identity:get_mapping": {
+              "key": "identity:get_mapping",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_group": {
+              "key": "identity:create_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_protocols": {
+              "key": "identity:list_protocols",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-owner": {
+              "key": "owner",
+              "value": "user_id:%(user_id)s"
+              }, 
+            "keystone-identity:get_project": {
+              "key": "identity:get_project",
+              "value": "rule:admin_required or project_id:%(target.project.id)s"
+              }, 
+            "keystone-identity:update_region": {
+              "key": "identity:update_region",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_region": {
+              "key": "identity:create_region",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_protocol": {
+              "key": "identity:get_protocol",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:check_policy_association_for_endpoint": {
+              "key": "identity:check_policy_association_for_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_domain_role": {
+              "key": "identity:get_domain_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_service": {
+              "key": "identity:get_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_policy_association_for_endpoint": {
+              "key": "identity:create_policy_association_for_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_policy": {
+              "key": "identity:get_policy",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-service_or_admin": {
+              "key": "service_or_admin",
+              "value": "rule:admin_required or rule:service_role"
+              }, 
+            "keystone-identity:get_access_token_role": {
+              "key": "identity:get_access_token_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_policy": {
+              "key": "identity:update_policy",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_consumer": {
+              "key": "identity:delete_consumer",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:remove_user_from_group": {
+              "key": "identity:remove_user_from_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_policy_association_for_region_and_service": {
+              "key": "identity:create_policy_association_for_region_and_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_mapping": {
+              "key": "identity:create_mapping",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_projects_for_endpoint": {
+              "key": "identity:list_projects_for_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_role_assignments": {
+              "key": "identity:list_role_assignments",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_credential": {
+              "key": "identity:get_credential",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_service": {
+              "key": "identity:create_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_mappings": {
+              "key": "identity:list_mappings",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-admin_or_owner": {
+              "key": "admin_or_owner",
+              "value": "rule:admin_required or rule:owner"
+              }, 
+            "keystone-identity:create_policy": {
+              "key": "identity:create_policy",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_user": {
+              "key": "identity:delete_user",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_group": {
+              "key": "identity:get_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_consumer": {
+              "key": "identity:create_consumer",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_roles_for_trust": {
+              "key": "identity:list_roles_for_trust",
+              "value": ""
+              }, 
+            "keystone-identity:check_policy_association_for_region_and_service": {
+              "key": "identity:check_policy_association_for_region_and_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-default": {
+              "key": "default",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_service_providers": {
+              "key": "identity:list_service_providers",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_consumer": {
+              "key": "identity:get_consumer",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:revoke_grant": {
+              "key": "identity:revoke_grant",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_user_projects": {
+              "key": "identity:list_user_projects",
+              "value": "rule:admin_or_owner"
+              }, 
+            "keystone-identity:list_implied_roles": {
+              "key": "identity:list_implied_roles",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_role_assignments_for_tree": {
+              "key": "identity:list_role_assignments_for_tree",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_endpoints": {
+              "key": "identity:list_endpoints",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_auth_domains": {
+              "key": "identity:get_auth_domains",
+              "value": ""
+              }, 
+            "keystone-identity:check_policy_association_for_service": {
+              "key": "identity:check_policy_association_for_service",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_protocol": {
+              "key": "identity:delete_protocol",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:add_endpoint_group_to_project": {
+              "key": "identity:add_endpoint_group_to_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_project": {
+              "key": "identity:update_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_group": {
+              "key": "identity:delete_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_domain": {
+              "key": "identity:delete_domain",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:add_endpoint_to_project": {
+              "key": "identity:add_endpoint_to_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_access_token": {
+              "key": "identity:delete_access_token",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_credential": {
+              "key": "identity:update_credential",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_service_provider": {
+              "key": "identity:get_service_provider",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:revoke_token": {
+              "key": "identity:revoke_token",
+              "value": "rule:admin_or_token_subject"
+              }, 
+            "keystone-identity:list_roles": {
+              "key": "identity:list_roles",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_domain_config": {
+              "key": "identity:update_domain_config",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_grants": {
+              "key": "identity:list_grants",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:ec2_list_credentials": {
+              "key": "identity:ec2_list_credentials",
+              "value": "rule:admin_or_owner"
+              }, 
+            "keystone-identity:list_users": {
+              "key": "identity:list_users",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:delete_policy_association_for_endpoint": {
+              "key": "identity:delete_policy_association_for_endpoint",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:create_endpoint_group": {
+              "key": "identity:create_endpoint_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-token_subject": {
+              "key": "token_subject",
+              "value": "user_id:%(target.token.user_id)s"
+              }, 
+            "keystone-admin_required": {
+              "key": "admin_required",
+              "value": "role:admin or is_admin:1"
+              }, 
+            "keystone-identity:get_role": {
+              "key": "identity:get_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_group": {
+              "key": "identity:update_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:remove_endpoint_from_project": {
+              "key": "identity:remove_endpoint_from_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_role_inference_rules": {
+              "key": "identity:list_role_inference_rules",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:change_password": {
+              "key": "identity:change_password",
+              "value": "rule:admin_or_owner"
+              }, 
+            "keystone-identity:get_implied_role": {
+              "key": "identity:get_implied_role",
+              "value": "rule:admin_required "
+              }, 
+            "keystone-identity:delete_credential": {
+              "key": "identity:delete_credential",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_domain_role": {
+              "key": "identity:update_domain_role",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_endpoint_group": {
+              "key": "identity:get_endpoint_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_domain_config": {
+              "key": "identity:get_domain_config",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_domain_roles": {
+              "key": "identity:list_domain_roles",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:check_endpoint_in_project": {
+              "key": "identity:check_endpoint_in_project",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:list_users_in_group": {
+              "key": "identity:list_users_in_group",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:update_user": {
+              "key": "identity:update_user",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:validate_token_head": {
+              "key": "identity:validate_token_head",
+              "value": "rule:service_or_admin"
+              }, 
+            "keystone-identity:list_groups_for_user": {
+              "key": "identity:list_groups_for_user",
+              "value": "rule:admin_or_owner"
+              }, 
+            "keystone-identity:list_access_token_roles": {
+              "key": "identity:list_access_token_roles",
+              "value": "rule:admin_required"
+              }, 
+            "keystone-identity:get_domain": {
+              "key": "identity:get_domain",
+              "value": "rule:admin_required or token.project.domain.id:%(target.domain.id)s"
+              }, 
+            "keystone-identity:delete_region": {
+              "key": "identity:delete_region",
+              "value": "rule:admin_required"
+              }
+        }

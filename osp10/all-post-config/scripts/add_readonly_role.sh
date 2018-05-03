@@ -22,6 +22,7 @@ case "${my_node_role}${my_node_index}" in
 	"Controller0")
 		echo "Creating readonly role on Galera using Controller0..."
 		/bin/puppet apply -e 'keystone_role { 'readonly':  ensure => present }'
+		#### /bin/puppet apply -e 'keystone_role { 'global_readonly':  ensure => present }'
 	;;
 esac
 

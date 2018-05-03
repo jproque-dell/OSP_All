@@ -1,0 +1,56 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        ceilometer::policy::policies: { 
+            "ceilometer-telemetry:create_samples": {
+              "key": "telemetry:create_samples",
+              "value": "rule:deny_readonly"
+              }, 
+            "ceilometer-telemetry:query_sample": {
+              "key": "telemetry:query_sample",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:get_meters": {
+              "key": "telemetry:get_meters",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:get_sample": {
+              "key": "telemetry:get_sample",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:compute_statistics": {
+              "key": "telemetry:compute_statistics",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:get_samples": {
+              "key": "telemetry:get_samples",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:get_resource": {
+              "key": "telemetry:get_resource",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:events:index": {
+              "key": "telemetry:events:index",
+              "value": ""
+              }, 
+            "ceilometer-telemetry:get_resources": {
+              "key": "telemetry:get_resources",
+              "value": ""
+              }, 
+            "ceilometer-segregation": {
+              "key": "segregation",
+              "value": "rule:context_is_admin"
+              }, 
+            "ceilometer-telemetry:events:show": {
+              "key": "telemetry:events:show",
+              "value": ""
+              }, 
+            "ceilometer-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "ceilometer-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }
+        }

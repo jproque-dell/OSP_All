@@ -111,4 +111,8 @@ parameter_defaults:
     krynn-ctrl-0: hostd
     krynn-ctrl-1: hoste
     krynn-ctrl-2: hostf
+    krynn-cmptsriov-0: hostg
+    krynn-cmptsriov-1: hosth
+    krynn-cmptdpdk-0: hosti
+    krynn-cmptdpdk-1: hostj
 

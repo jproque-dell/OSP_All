@@ -1,0 +1,5 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        ironic::policy::policies: {
+        }
+

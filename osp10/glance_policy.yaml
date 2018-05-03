@@ -1,0 +1,192 @@
+parameter_defaults:
+    ControllerExtraConfig:
+        glance::policy::policies: { 
+            "glance-get_task": {
+              "key": "get_task",
+              "value": "role:admin"
+              }, 
+            "glance-get_metadef_tag": {
+              "key": "get_metadef_tag",
+              "value": ""
+              }, 
+            "glance-add_metadef_resource_type_association": {
+              "key": "add_metadef_resource_type_association",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-modify_metadef_namespace": {
+              "key": "modify_metadef_namespace",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-get_metadef_properties": {
+              "key": "get_metadef_properties",
+              "value": ""
+              }, 
+            "glance-get_metadef_object": {
+              "key": "get_metadef_object",
+              "value": ""
+              }, 
+            "glance-get_image_location": {
+              "key": "get_image_location",
+              "value": ""
+              }, 
+            "glance-list_metadef_resource_types": {
+              "key": "list_metadef_resource_types",
+              "value": ""
+              }, 
+            "glance-add_image": {
+              "key": "add_image",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-get_metadef_namespace": {
+              "key": "get_metadef_namespace",
+              "value": ""
+              }, 
+            "glance-modify_image": {
+              "key": "modify_image",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-manage_image_cache": {
+              "key": "manage_image_cache",
+              "value": "role:admin"
+              }, 
+            "glance-delete_member": {
+              "key": "delete_member",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-deactivate": {
+              "key": "deactivate",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-add_metadef_property": {
+              "key": "add_metadef_property",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-modify_metadef_tag": {
+              "key": "modify_metadef_tag",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-get_member": {
+              "key": "get_member",
+              "value": ""
+              }, 
+            "glance-get_metadef_resource_type": {
+              "key": "get_metadef_resource_type",
+              "value": ""
+              }, 
+            "glance-delete_image": {
+              "key": "delete_image",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-get_metadef_namespaces": {
+              "key": "get_metadef_namespaces",
+              "value": ""
+              }, 
+            "glance-get_metadef_objects": {
+              "key": "get_metadef_objects",
+              "value": ""
+              }, 
+            "glance-modify_metadef_property": {
+              "key": "modify_metadef_property",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-publicize_image": {
+              "key": "publicize_image",
+              "value": "role:admin"
+              }, 
+            "glance-add_metadef_namespace": {
+              "key": "add_metadef_namespace",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-get_images": {
+              "key": "get_images",
+              "value": ""
+              }, 
+            "glance-add_member": {
+              "key": "add_member",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-set_image_location": {
+              "key": "set_image_location",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-add_task": {
+              "key": "add_task",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "glance-modify_member": {
+              "key": "modify_member",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-context_is_admin": {
+              "key": "context_is_admin",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "glance-upload_image": {
+              "key": "upload_image",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-deny_readonly": {
+              "key": "deny_readonly",
+              "value": "not role:readonly"
+              }, 
+            "glance-add_metadef_object": {
+              "key": "add_metadef_object",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-modify_task": {
+              "key": "modify_task",
+              "value": "role:admin and rule:deny_readonly"
+              }, 
+            "glance-get_members": {
+              "key": "get_members",
+              "value": ""
+              }, 
+            "glance-get_tasks": {
+              "key": "get_tasks",
+              "value": "role:admin"
+              }, 
+            "glance-get_image": {
+              "key": "get_image",
+              "value": ""
+              }, 
+            "glance-reactivate": {
+              "key": "reactivate",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-default": {
+              "key": "default",
+              "value": "role:admin"
+              }, 
+            "glance-get_metadef_property": {
+              "key": "get_metadef_property",
+              "value": ""
+              }, 
+            "glance-delete_image_location": {
+              "key": "delete_image_location",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-copy_from": {
+              "key": "copy_from",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-add_metadef_tags": {
+              "key": "add_metadef_tags",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-download_image": {
+              "key": "download_image",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-modify_metadef_object": {
+              "key": "modify_metadef_object",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-add_metadef_tag": {
+              "key": "add_metadef_tag",
+              "value": "rule:deny_readonly"
+              }, 
+            "glance-get_metadef_tags": {
+              "key": "get_metadef_tags",
+              "value": ""
+              }
+        }
